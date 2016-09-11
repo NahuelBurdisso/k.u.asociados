@@ -227,6 +227,8 @@
     <None Include="Content\Scss\_reset.scss" />
     <None Include="Content\Scss\_marginpadding.scss" />
     <None Include="Content\Scss\_navbar.scss" />
+    <None Include="Content\Scss\_home.scss" />
+    <None Include="Content\Scss\_fonts.scss" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

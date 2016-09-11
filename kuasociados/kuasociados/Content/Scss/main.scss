@@ -1,7 +1,8 @@
 ﻿@import "_reset.scss";
 @import "_marginpadding.scss";
-
-
+@import "_fonts.scss";
+@import "_navbar.scss";
+@import "_home.scss";
 body {
     padding-top: 50px;
     padding-bottom: 20px;
@@ -26,14 +27,6 @@ a{
 }
 /*font modification*/
 html {
-    font-size: 62.5%;
     font-family: 'Helvetica';
 }
 
-/*NAVBAR*/
-    
-/* HOME */
-#section0 {
-    background-image: url("/Content/img/home-law.jpg");
-    background-size: cover;
-}

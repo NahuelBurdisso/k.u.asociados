@@ -2,6 +2,7 @@
    v2.0 | 20110126
    License: none (public domain)
 */
+@import 'https://fonts.googleapis.com/css?family=Asap:400,400i,700,700i|Bad+Script|Pacifico';
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
@@ -214,6 +215,44 @@ table {
 .mtxl, .mvxl {
   margin-top: 30px !important; }
 
+.navbar .nav > li > a {
+  color: white;
+  font-family: "Asap";
+  font-size: 16px; }
+
+.navbar .nav > li > a:hover, .navbar .nav > li > a:focus, .navbar .nav > li.active > a {
+  background-color: rgba(0, 0, 0, 0.2); }
+
+.navbar .navbar-brand {
+  color: white;
+  font-family: "Asap";
+  font-size: 19px; }
+
+.home .section0-img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 3; }
+
+.home .section0-overlay {
+  background-color: #000000;
+  opacity: 0.4;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%; }
+
+.home_quote {
+  position: absolute;
+  bottom: 45%;
+  left: 10%;
+  font-family: 'Bad Script', cursive;
+  font-size: 42px;
+  color: white;
+  z-index: 11; }
+
 body {
   padding-top: 50px;
   padding-bottom: 20px; }
@@ -236,12 +275,5 @@ a {
 
 /*font modification*/
 html {
-  font-size: 62.5%;
   font-family: 'Helvetica'; }
-
-/*NAVBAR*/
-/* HOME */
-#section0 {
-  background-image: url("/Content/img/home-law.jpg");
-  background-size: cover; }
 
