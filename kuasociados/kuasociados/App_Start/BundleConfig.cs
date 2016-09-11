@@ -26,6 +26,11 @@ namespace kuasociados
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            var styleBundle = new StyleBundle("~/Content/Scss/main.css")
+                .Include("~/Content/Site.css");
+
+            BundleTable.Bundles.Add(styleBundle);
         }
     }
 }
