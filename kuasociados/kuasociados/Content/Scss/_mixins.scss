@@ -1,0 +1,31 @@
+﻿@media (max-width: 1200px){
+
+} 
+
+@media (max-width: 992px) {
+    .home{
+        #section1{
+            background-image:url("/Content/img/background-8.jpg"); /*fondo para pantalla mas chica*/
+            p{
+                font-size: 30px;
+                padding: 20px 50px;
+            }
+            .function-icon{
+                height: 162px;
+                width: 160px;
+            }
+        }
+        #section2{
+            background-image:url("/Content/img/background-4.jpg"); /*fondo para pantalla mas chica*/
+             p{
+                font-size: 29px;
+                 padding: 20px 50px;
+                line-height: 31px;
+            }
+        }
+    } 
+}
+
+@media (max-width: 768px) {
+
+}

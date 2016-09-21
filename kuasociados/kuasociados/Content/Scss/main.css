@@ -3,6 +3,7 @@
    License: none (public domain)
 */
 @import 'https://fonts.googleapis.com/css?family=Asap:400,400i,700,700i|Bad+Script|Pacifico';
+@import 'https://fonts.googleapis.com/css?family=Caveat+Brush|Courgette|Josefin+Sans:600|Kalam';
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
@@ -225,8 +226,18 @@ table {
 
 .navbar .navbar-brand {
   color: white;
-  font-family: "Asap";
+  font-family: Courgette;
   font-size: 19px; }
+
+.navbar .navbar-toggle {
+  border: 1px solid white; }
+  .navbar .navbar-toggle .icon-bar {
+    color: white;
+    border-color: white;
+    background-color: white; }
+
+.home .white {
+  color: white; }
 
 .home .section0-img {
   position: relative;
@@ -246,12 +257,88 @@ table {
 
 .home_quote {
   position: absolute;
-  bottom: 45%;
+  bottom: 25%;
   left: 10%;
   font-family: 'Bad Script', cursive;
-  font-size: 42px;
+  font-size: 50px;
   color: white;
+  animation-delay: 2s;
   z-index: 11; }
+
+.home #section1 {
+  background-image: url("/Content/img/background-8.jpg");
+  background-size: cover;
+  background-repeat: no-repeat; }
+  .home #section1 p {
+    color: #494848;
+    font-family: "Courgette";
+    font-size: 60px;
+    padding: 10px 130px; }
+  .home #section1 p:hover {
+    transform: scale(1.1);
+    transition-duration: 5s; }
+  .home #section1 .function-icon {
+    height: 162px;
+    width: 160px;
+    margin-bottom: 20px; }
+
+.home #section2 {
+  background-image: url("/Content/img/background-4.jpg");
+  background-size: cover;
+  background-repeat: no-repeat; }
+  .home #section2 p {
+    color: #760000;
+    font-family: "Josefin Sans";
+    font-size: 49px;
+    padding: 10px 105px;
+    line-height: 55px;
+    border-radius: 20px; }
+  .home #section2 p:hover {
+    transform: skew(5deg, 5deg);
+    transition-duration: 5s; }
+
+.home #section3 {
+  background-image: url("/Content/img/background-10.jpg");
+  background-size: cover;
+  background-repeat: no-repeat; }
+  .home #section3 h3 {
+    color: white;
+    font-family: "Courgette";
+    font-size: 55px; }
+  .home #section3 p {
+    color: white;
+    font-family: "Courgette";
+    font-size: 49px; }
+  .home #section3 p:hover {
+    transform: skew(5deg, 5deg);
+    transition-duration: 5s; }
+
+#fp-nav ul li a span {
+  background: white; }
+
+#fp-nav ul li .fp-tooltip {
+  color: #fff;
+  font-size: 20px;
+  font-family: "Courgette" , sans-serif;
+  top: -5.5px; }
+
+@media (max-width: 992px) {
+  .home #section1 {
+    background-image: url("/Content/img/background-8.jpg");
+    /*fondo para pantalla mas chica*/ }
+    .home #section1 p {
+      font-size: 30px;
+      padding: 20px 50px; }
+    .home #section1 .function-icon {
+      height: 162px;
+      width: 160px; }
+  .home #section2 {
+    background-image: url("/Content/img/background-4.jpg");
+    /*fondo para pantalla mas chica*/ }
+    .home #section2 p {
+      font-size: 29px;
+      padding: 20px 50px;
+      line-height: 31px; } }
 
 body {
   padding-top: 50px;

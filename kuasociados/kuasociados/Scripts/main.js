@@ -1,7 +1,14 @@
 ﻿$(document).ready(function () {
     $('#fullpage').fullpage({
-        anchors: ['start-info', 'about-info', 'service-info', 'actual-info', 'contact-info'],
         menu: '#menu',
-        scrollingSpeed: 1000
+        scrollingSpeed: 1000,
+        controlArrows: false,
+        responsiveSlides: true,
+        loopBottom: true,
+        fadingEffect: true,
+        navigation: true,
+        slidesNavigation: true,
+        navigationTooltips: ['Presentación', 'Funciones','Nuestra Misión','Nuestra Visión'],
     });
+    console.log("hola");
 });

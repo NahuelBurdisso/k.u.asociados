@@ -319,7 +319,9 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
     this.sliding     =
     this.interval    =
     this.$active     =
-    this.$items      = null
+    this.
+
+s      = null
 
     this.options.pause == 'hover' && this.$element
       .on('mouseenter', $.proxy(this.pause, this))
