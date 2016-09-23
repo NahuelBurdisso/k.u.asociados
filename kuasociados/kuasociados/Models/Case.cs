@@ -9,22 +9,22 @@ namespace kuasociados.Models
     public class Case
     {
         [Required(ErrorMessage = "El campo no puede estar vacío.")]
-        [Display(Name = "Ingrese el abogado a cargo:")]
+        [Display(Name = "El abogado a cargo:")]
         public virtual Lawyer lawyer { get; set; }
 
         [Required(ErrorMessage = "El campo no puede estar vacío")]
         [DataType(DataType.DateTime)]
-        [Display(Name = "Ingrese una fecha de iniciación:")]
+        [Display(Name = "Fecha de iniciación:")]
         public string initiationDate { get; set; }
 
         [Required(ErrorMessage = "El campo no puede estar vacío.")]
-        [Display(Name = "Elija una especialidad:")]
+        [Display(Name = "Especialidad:")]
         public virtual Specialty specialty { get; set; }
 
-        [Display(Name = "Ingrese un estado actual:")]
+        [Display(Name = "Estado actual:")]
         public virtual State actualState { get; set; }
 
-        [Display(Name = "Ingrese un estado actual:")]
+        [Display(Name = "Historial:")]
         public virtual List<State> stateHistory { get; set; }
     }
 }

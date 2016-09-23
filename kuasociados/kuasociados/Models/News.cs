@@ -11,15 +11,15 @@ namespace kuasociados.Models
         public virtual int idNews { get; set; }
 
         [Required(ErrorMessage = "El campo no puede estar vacío.")]
-        [Display(Name = "Ingrese un título:")]
+        [Display(Name = "Título:")]
         public virtual string title { get; set; }
 
         
-        [Display(Name = "Ingrese un subtítulo:")]
+        [Display(Name = "Subtítulo:")]
         public virtual string subtitle { get; set; }
 
         [Required(ErrorMessage = "El campo no puede estar vacío.")]
-        [Display(Name = "Ingrese una imagen para su noticia:")]
+        [Display(Name = "Imagen principal para su noticia:")]
         public virtual string img { get; set; } //TODO analizar que tipo es
 
         [Required(ErrorMessage = "El campo no puede estar vacío")]

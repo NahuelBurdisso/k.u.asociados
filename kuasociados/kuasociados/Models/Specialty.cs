@@ -11,7 +11,7 @@ namespace kuasociados.Models
         public virtual int idSpecialty { get; set; }
 
         [Required(ErrorMessage = "El campo no puede estar vacío.")]
-        [Display(Name = "Ingrese un nombre para la especialdad:")]
+        [Display(Name = "Nombre:")]
         public virtual string name { get; set; }
 
         public virtual List<Lawyer> lawyerList { get; set; }

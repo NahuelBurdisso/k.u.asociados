@@ -9,16 +9,16 @@ namespace kuasociados.Models
     public class State
     {
         [Required(ErrorMessage = "El campo no puede estar vacío.")]
-        [Display(Name = "Ingrese un nombre de estado:")]
+        [Display(Name = "Estado:")]
         public virtual string name { get; set; }
 
         [Required(ErrorMessage = "El campo no puede estar vacío")]
         [DataType(DataType.DateTime)]
-        [Display(Name = "Ingrese una fecha de iniciación:")]
+        [Display(Name = "Fecha de iniciación:")]
         public string initiationDate { get; set; }
 
         [Required(ErrorMessage = "El campo no puede estar vacío.")]
-        [Display(Name = "Ingrese un comentario:")]
+        [Display(Name = "Comentario:")]
         public virtual string comment { get; set; }
 
 

@@ -11,11 +11,11 @@ namespace kuasociados.Models
         public virtual int idLawyer { get; set; }
 
         [Required(ErrorMessage = "El campo no puede estar vacío.")]
-        [Display(Name = "Elija una especialidad:")]
+        [Display(Name = "Especialidad:")]
         public virtual Specialty specialty { get; set; }
 
         [Required(ErrorMessage = "El campo no puede estar vacío.")]
-        [Display(Name = "Ingrese una Imagen de Perfil:")]
+        [Display(Name = "Imagen de Perfil:")]
         public virtual string profileImg { get; set; } //TODO analizar que tipo es
 
         [Display(Name = "Casos que tiene a cargo:")]
