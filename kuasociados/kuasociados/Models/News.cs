@@ -23,12 +23,12 @@ namespace kuasociados.Models
         public virtual string img { get; set; } //TODO analizar que tipo es
 
         [Required(ErrorMessage = "El campo no puede estar vacío")]
-        [DataType(DataType.DateTime)]
-        [Display(Name = "Ingrese una fecha de publicación:")]
-        public string publishDate { get; set; }
+        [DataType(DataType.Date)]
+        [Display(Name = "Fecha de publicación:")]
+        public DateTime publishDate { get; set; }
 
         [Required(ErrorMessage = "El campo no puede estar vacío.")]
-        [Display(Name = "Ingrese un autor:")]
+        [Display(Name = "Autor:")]
         public virtual string author { get; set; }
     }
 }
