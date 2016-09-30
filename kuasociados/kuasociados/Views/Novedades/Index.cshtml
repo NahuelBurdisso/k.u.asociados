@@ -6,7 +6,9 @@
     ViewBag.Title = "Index";
 }
 
-
+@{
+    string i = "hola";
+ }
 <section class="novedades">
     <div class="container">
         <div class="row">
@@ -18,6 +20,7 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="grid cs-style-6">
+                   
                     <figure>
                         <img src="../Content/img/background-10.jpg" alt="imagen-noticia" class="" />
                         <figcaption>
@@ -30,25 +33,44 @@
                             <a href="/">Ver noticia</a>  
                         </figcaption>
                     </figure>
-                    
+                    @if (i == "hola")
+                    {
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="pull-right mtxs">
+                                    <button class="btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                                    <button class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+
+                    }    
                 </div>
                 @*for de noticias*@
 
-                @*<div class="noticia mbl">
-                    <a hred="" class="">
-            
-                        <div class="">
-                            <img src="../Content/img/background-10.jpg" alt="imagen-noticia" class="img-responsive img-rounded" />
-                        </div>
-                        <p class="noticia_title mvs">Titulo de la noticia</p>
-                        <p class="noticia_subtitle mbs">Subtitulo de la noticia es opcional</p>
-                        <p class="noticia_fecha mbxs">10/24/2014</p>
-                        <p class="noticia_autor mbxs">by Autor</p>
-                    </a>
-                </div>*@
             </div>
             <div class="col-md-4">
-                <aside></aside>
+                <aside>
+                    @if(i == "hola")
+                    {
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="panel admin">
+                                    <h3 class="mbxs">Admin</h3>
+                                    <button class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i></button><span class="mlxs">Agregar noticia</span>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    else{
+
+                    }
+                </aside>
             </div>
         </div>
     </div>

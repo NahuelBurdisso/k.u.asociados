@@ -2048,6 +2048,11 @@ h1 {
   color: #640000;
   font-size: 35px; }
 
+h3 {
+  color: #37474f;
+  font-family: "Josefin Sans";
+  font-size: 26px; }
+
 .block {
   display: block; }
 
@@ -2076,4 +2081,11 @@ footer {
     margin-bottom: 5px; }
     footer .li_item a:hover {
       color: goldenrod; }
+
+.admin {
+  padding: 15px; }
+  .admin span {
+    font-family: "Asap";
+    font-size: 16px;
+    color: green; }
 

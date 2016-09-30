@@ -242,6 +242,8 @@
     <None Include="Content\Scss\_novedades.scss" />
     <None Include="Content\Scss\_buttons.scss" />
     <None Include="Content\Scss\_variables.scss" />
+    <None Include="Content\Scss\_login.scss" />
+    <None Include="Content\Scss\_register.scss" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

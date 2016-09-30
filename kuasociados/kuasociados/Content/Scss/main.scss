@@ -8,6 +8,8 @@
 @import "_mixins.scss";
 @import "_novedades.scss";
 @import "_buttons.scss";
+@import "_register.scss";
+@import "_login.scss";
 body {
     padding-top: 50px;
     min-height: 600px;
@@ -40,6 +42,14 @@ h1{
     color: #640000;
     font-size: 35px;
 }
+h3{
+    color: #37474f;
+    font-family: "Josefin Sans";
+    font-size: 26px;
+
+}
+
+
 
 .block{
     display:block;
@@ -76,6 +86,16 @@ footer{
                  color: rgb(218,165,32);  
             }
         } 
+    }
+   
+}
+
+.admin{
+    padding: 15px;
+    span{
+         font-family: "Asap";
+        font-size: 16px;
+        color: green;
     }
    
 }
