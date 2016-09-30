@@ -1,15 +1,16 @@
-﻿
-
+﻿@import "_variables.scss";
+@import "_form.scss";
 @import "_reset.scss";
 @import "_marginpadding.scss";
 @import "_fonts.scss";
 @import "_navbar.scss";
 @import "_home.scss";
 @import "_mixins.scss";
-@import "_textanim.scss";
+@import "_novedades.scss";
+@import "_buttons.scss";
 body {
     padding-top: 50px;
-    padding-bottom: 20px;
+    min-height: 600px;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -34,3 +35,47 @@ html {
     font-family: 'Helvetica';
 }
 
+h1{
+    font-family: "Josefin Sans";
+    color: #640000;
+    font-size: 35px;
+}
+
+.block{
+    display:block;
+}
+
+footer{
+    background-color:rgb(100, 0, 0); 
+    padding-bottom: 25px;
+    position: absolute;
+    z-index: -10;
+    bottom: 0%;
+    width: 100%;
+    .col-border{
+        border-right: 2px solid rgb(80, 0, 0);
+    }
+    .logo-brand{
+        color: white;
+        font-family: Courgette;
+        font-size: 19px;
+        margin-top: 5px;
+    }
+    .li_title{
+        color: rgba(218,165,32, 0.8);
+        font-family: "Courgette";
+        font-size: 22px;
+    }
+    .li_item{
+        a{
+            color: white;
+            font-family: "Asap";
+            font-size: 16px;
+            margin-bottom: 5px;
+            &:hover{
+                 color: rgb(218,165,32);  
+            }
+        } 
+    }
+   
+}

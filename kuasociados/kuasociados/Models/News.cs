@@ -14,7 +14,10 @@ namespace kuasociados.Models
         [Display(Name = "Título:")]
         public virtual string title { get; set; }
 
-        
+        [Required(ErrorMessage = "El campo no puede estar vacío.")]
+        [Display(Name = "Cuerpo:")]
+        public virtual string body { get; set; }
+
         [Display(Name = "Subtítulo:")]
         public virtual string subtitle { get; set; }
 

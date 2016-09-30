@@ -22,7 +22,7 @@ namespace kuasociados.Models
 
         [Required(ErrorMessage = "El campo no puede estar vacío")]
         [DataType(DataType.EmailAddress, ErrorMessage = "El email no es válido.")]
-        [Display(Name ="Email:")]
+        [Display(Name = "Email:")]
         public virtual string email { get; set; }
 
         [Required(ErrorMessage = "El campo no puede estar vacío")]
@@ -37,7 +37,6 @@ namespace kuasociados.Models
         public virtual string dni { get; set; }
 
         [Required(ErrorMessage = "El campo no puede estar vacío")]
-        [Range(typeof(bool), "M", "F", ErrorMessage= "Eliga uno de los dos.")]
         [Display(Name = "Sexo:")]
         public virtual string gender { get; set; }
 

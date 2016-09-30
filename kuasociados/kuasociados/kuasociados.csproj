@@ -232,12 +232,16 @@
     <Content Include="Content\Scss\main.min.css">
       <DependentUpon>main.css</DependentUpon>
     </Content>
+    <Content Include="Content\Scss\_form.scss" />
     <None Include="Content\Scss\_reset.scss" />
     <None Include="Content\Scss\_marginpadding.scss" />
     <None Include="Content\Scss\_navbar.scss" />
     <None Include="Content\Scss\_home.scss" />
     <None Include="Content\Scss\_fonts.scss" />
     <None Include="Content\Scss\_mixins.scss" />
+    <None Include="Content\Scss\_novedades.scss" />
+    <None Include="Content\Scss\_buttons.scss" />
+    <None Include="Content\Scss\_variables.scss" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -268,7 +272,9 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Web.config" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -298,6 +304,8 @@
     <Content Include="Views\Novedades\Index.cshtml" />
     <Content Include="Views\NuestroStaff\Index.cshtml" />
     <Content Include="Views\Novedades\Create.cshtml" />
+    <Content Include="Views\NuestroStaff\CreateLawyer.cshtml" />
+    <Content Include="Views\NuestroStaff\CreateEmployee.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

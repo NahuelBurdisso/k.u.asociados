@@ -12,13 +12,18 @@ namespace kuasociados.Controllers
         // GET: Novedades
         public ActionResult Index()
         {
-            News news = new News();
+            //var newsList = new List<News>();
+            //for (int i = 0; i < length; i++)
+            //{
+            //    newsList.Add();
+            //}
+            var news = new News();
             news.author = "Pedro Olivar";
             news.idNews = 1;
             news.publishDate = new DateTime(2015, 01, 02);
             news.title = "Lucha contra el narcotrafico";
             news.title = "La lucha contra el narcotrafico en Rafaela aumenta considerablemente";
-
+            news.img = "";
             return View(news);
         }
 

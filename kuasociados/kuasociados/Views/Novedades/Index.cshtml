@@ -6,4 +6,51 @@
     ViewBag.Title = "Index";
 }
 
-<h2>@Html.DisplayFor(m => m.author)</h2>
+
+<section class="novedades">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Últimas novedades</h1>
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="grid cs-style-6">
+                    <figure>
+                        <img src="../Content/img/background-10.jpg" alt="imagen-noticia" class="" />
+                        <figcaption>
+                            <p>Titulo de la noticia<br>
+                               Subtitlo<br>
+                            <span class="author">Autor</span>
+                            <br><span>Fecha </span>
+                            </p>
+                            
+                            <a href="/">Ver noticia</a>  
+                        </figcaption>
+                    </figure>
+                    
+                </div>
+                @*for de noticias*@
+
+                @*<div class="noticia mbl">
+                    <a hred="" class="">
+            
+                        <div class="">
+                            <img src="../Content/img/background-10.jpg" alt="imagen-noticia" class="img-responsive img-rounded" />
+                        </div>
+                        <p class="noticia_title mvs">Titulo de la noticia</p>
+                        <p class="noticia_subtitle mbs">Subtitulo de la noticia es opcional</p>
+                        <p class="noticia_fecha mbxs">10/24/2014</p>
+                        <p class="noticia_autor mbxs">by Autor</p>
+                    </a>
+                </div>*@
+            </div>
+            <div class="col-md-4">
+                <aside></aside>
+            </div>
+        </div>
+    </div>
+    
+</section>

@@ -36,9 +36,43 @@
     </div>
     <div class="">
         @RenderBody()
-        <hr />
+       
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <div class="container">
+                <div class="row mtxl">
+                    <div class="col-md-offset-1 col-md-2 col-sm-offset-1 col-sm-2 col-xs-12 plxl prl col-border">
+                        <a href= "@(Url.Action("Index" , "Home"))">
+                            <img src="~/Content/img/logo.png" alt="KUAsociados-logo" class="img-responsive logo_img">
+                            <p class="text-center logo-brand">
+                                K. U. y Asociados
+                            </p>
+                        </a>
+                    </div>
+                    <div class="col-md-2 col-sm-2 col-xs-12 ptl plxl col-border">
+                        <ul>
+                            <li class="li_title">Clientes</li>
+                            <li class="li_item"><a href="{% url 'informacion:crear_lista' %}">Mis Casos</a></li>
+                            <li class="li_item"><a href="@(Url.Action("Index" , "Novedades "))">Novedades</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-2 col-sm-2 col-xs-12 ptl plxl col-border">
+                        <ul>
+                            <li class="li_title">Ayuda</li>
+                            <li class="li_item"><a href="">FAQ</a></li>
+                            <li class="li_item"><a href="">Cómo funciona</a></li>
+                            <li class="li_item"><a href="">¿Quiénes somos?</a></li>
+                            <li class="li_item"><a href="@(Url.Action("Index" , "Contacto "))">Contacto</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-2 col-sm-2 col-xs-12 ptl plxl">
+                        <ul>
+                            <li class="li_title">K.U y Asociados</li>
+                            <li class="li_item"><a href="">Sucursales</a></li>
+                            <li class="li_item"><a href="">Testimonios</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </footer>
     </div>
 
@@ -46,6 +80,7 @@
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/Scripts/jquery.fullPage.min.js")
     @RenderSection("scripts", required: false)
+    <script type="text/javascript" src="../../Scripts/classie.js"></script>
     <script type="text/javascript" src="../../Scripts/main.js"></script>
 </body>
 </html>

@@ -1,0 +1,96 @@
+﻿.create{
+    background-color:rgb(224,224,224) ;
+}
+.novedades{
+    background-color:rgb(224,224,224);
+    hr{
+        border-top: 1px solid rgb(100, 0, 0);
+    }
+    /*hover efect para las noticias*/
+    .grid{
+	    display: inline-block;
+	    margin: 0;
+	    padding: 20px;
+	    text-align: left;
+	    position: relative;
+    }
+
+    .grid figure {
+	    margin: 0;
+	    position: relative;
+    }
+
+    .grid figure img {
+	    max-width: 100%;
+        height: 350px;
+	    display: block;
+	    position: relative;
+    }
+
+    .grid figcaption {
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    padding: 15px;
+	    background: rgb(100, 0, 0);
+        height: 350px;
+    }
+
+    .grid figcaption p {
+        position: absolute;
+	    bottom: 10%;
+	    left: 5%;
+	    margin: 0;
+	    padding: 0;
+	    color: white;
+        font-family: Courgette;
+        font-size: 19px;
+    }
+
+    .grid figcaption .author:before {
+	    content: 'by ';
+    }
+    .grid figcaption span{
+        font-family: Courgette;
+        font-size: 13px;
+    }
+
+    .grid figcaption a {
+	    text-align: center;
+	    padding: 10px 20px;
+	    border-radius: 2px;
+	    display: inline-block;
+	    background:rgb(218,165,32); 
+        font-size: 19px; 
+	    color: white;
+        font-family: "Josefin Sans";
+        &:hover{
+            background:rgb(228,195,62); 
+        }
+    }
+    /* Caption Style 6 */
+    .cs-style-6 figure img {
+	    z-index: 10;
+	    -webkit-transition: -webkit-transform 0.4s;
+	    -moz-transition: -moz-transform 0.4s;
+	    transition: transform 0.4s;
+    }
+
+    .cs-style-6 figure:hover img{
+	    -webkit-transform: translateY(-40px) scale(0.5);
+	    -moz-transform: translateY(-40px) scale(0.5);
+	    -ms-transform: translateY(-40px) scale(0.5);
+	    transform: translateY(-40px) scale(0.5);
+    }
+
+    .cs-style-6 figcaption {
+	    height: 100%;
+	    width: 100%;
+    }
+
+    .cs-style-6 figcaption a {
+	    position: absolute;
+	    bottom: 20px;
+	    right: 20px;
+    }
+}

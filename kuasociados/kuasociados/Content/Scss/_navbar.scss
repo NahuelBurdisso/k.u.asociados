@@ -1,12 +1,13 @@
 ﻿.navbar{
-    background-color: rgba(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    border: none;
     .nav > li > a{
         color: white;
         font-family: "Asap";
         font-size: 16px;
     }
     .nav > li > a:hover, .nav > li > a:focus, .nav > li.active > a{
-        background-color: rgba(0,0,1);
+        background-color: rgba(0,0,0,0.6);
     }
     .navbar-brand{
         color: white;
