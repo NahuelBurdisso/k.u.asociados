@@ -12,7 +12,7 @@
     });
 
     // init Isotope
-    var $grid = $('.grid').isotope({
+    var $grid = $('.grid-isotope').isotope({
         // options
     });
     // filter items on button click

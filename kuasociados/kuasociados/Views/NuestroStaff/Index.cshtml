@@ -1,6 +1,9 @@
 ﻿@model kuasociados.Models.NuestroStaffModel
 
 
+@{
+    string i = "hola";
+}
 
 @{
     ViewBag.Title = "Index";
@@ -15,11 +18,27 @@
         </div>
         <div class="row">
             <div class="col-md-6">
+                @if (i == "hola")
+                {
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel admin">
+                                <h3 class="mbxs">Admin</h3>
+                                <a class="btn btn-success" href="@Url.Action("CreateEmployee", "NuestroStaff")"><i class="fa fa-plus" aria-hidden="true"></i></a><span class="mlxs">Agregar empleado</span>
+                            </div>
+                        </div>
+                    </div>
+                }
+                else
+                {
+
+                }
                 <div class="row margin-bottom-2">
                     <div class="col-md-12 text-center">
                         <h3>Empleados</h3>
                     </div>
                 </div>
+                
                 <div class="row">
                     @foreach (var employee in Model.employees)
                     {
@@ -37,11 +56,27 @@
                 </div>
             </div>
             <div class="col-md-6">
+                @if (i == "hola")
+                {
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel admin">
+                                <h3 class="mbxs">Admin</h3>
+                                <a class="btn btn-success" href="@Url.Action("CreateLawyer", "NuestroStaff")"><i class="fa fa-plus" aria-hidden="true"></i></a><span class="mlxs">Agregar abogado</span>
+                            </div>
+                        </div>
+                    </div>
+                }
+                else
+                {
+
+                }
                 <div class="row mbl">
                     <div class="col-md-12 text-center">
                         <h3>Abogados</h3>
                     </div>
                 </div>
+              
                 <div class="row mvs">
                     <div class="col-md-12">
                         <div class="button-group filter-button-group">
@@ -53,8 +88,9 @@
                         </div>
                     </div>
                 </div>
+                
                 <div class="row">
-                    <div class="grid">
+                    <div class="grid-isotope">
                         @foreach (var lawyer in Model.lawyers)
                         {
                             switch (@lawyer.specialty.idSpecialty)
