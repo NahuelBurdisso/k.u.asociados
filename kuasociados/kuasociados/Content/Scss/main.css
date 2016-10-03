@@ -2019,6 +2019,31 @@ table {
   border-color: #3f51b5;
   color: #fff; }
 
+.nuestrostaff .thumbnail {
+  padding: 15px;
+  background-color: #640000;
+  min-height: 460px; }
+  .nuestrostaff .thumbnail:hover {
+    background-color: #781414;
+    border: 2px solid goldenrod; }
+
+.nuestrostaff .caption {
+  color: white;
+  font-family: "Asap";
+  font-size: 20px; }
+
+.nuestrostaff .btn {
+  color: white;
+  font-family: "Kalam";
+  background-color: #640000;
+  margin-bottom: 3px; }
+
+.nuestrostaff .margin-bottom {
+  margin-bottom: 1px; }
+
+.nuestrostaff .margin-bottom-2 {
+  margin-bottom: 104px; }
+
 body {
   padding-top: 50px;
   min-height: 600px; }
@@ -2051,7 +2076,7 @@ h1 {
 h3 {
   color: #37474f;
   font-family: "Josefin Sans";
-  font-size: 26px; }
+  font-size: 29px; }
 
 .block {
   display: block; }
@@ -2059,7 +2084,6 @@ h3 {
 footer {
   background-color: #640000;
   padding-bottom: 25px;
-  position: absolute;
   z-index: -10;
   bottom: 0%;
   width: 100%; }

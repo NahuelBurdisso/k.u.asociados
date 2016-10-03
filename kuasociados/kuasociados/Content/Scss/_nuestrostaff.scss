@@ -1,0 +1,28 @@
+﻿.nuestrostaff{
+    .thumbnail{
+        padding: 15px;
+        background-color: rgb(100,0,0);
+        min-height: 460px;
+        &:hover{
+            background-color: rgb(120,20,20);
+            border: 2px solid rgb(218,165,32);
+        }
+    }
+    .caption{
+        color: white;
+        font-family: "Asap";
+        font-size: 20px;
+    }
+    .btn{
+        color: white;
+        font-family: "Kalam";
+        background-color: rgb(100,0,0);
+        margin-bottom: 3px;
+    }
+    .margin-bottom{
+        margin-bottom: 1px;
+    }   
+    .margin-bottom-2{
+        margin-bottom: 104px;
+    }
+}

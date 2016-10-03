@@ -32,7 +32,7 @@ namespace kuasociados.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(News news)
+        public ActionResult CreateNovedad(News news)
         {
 
             if (ModelState.IsValid)

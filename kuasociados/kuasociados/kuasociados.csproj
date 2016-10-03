@@ -205,6 +205,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\NuestroStaffModel.cs" />
     <Compile Include="Models\Case.cs" />
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\Employee.cs" />
@@ -244,6 +245,7 @@
     <None Include="Content\Scss\_variables.scss" />
     <None Include="Content\Scss\_login.scss" />
     <None Include="Content\Scss\_register.scss" />
+    <None Include="Content\Scss\_nuestrostaff.scss" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -305,7 +307,7 @@
     <Content Include="Views\Contacto\Index.cshtml" />
     <Content Include="Views\Novedades\Index.cshtml" />
     <Content Include="Views\NuestroStaff\Index.cshtml" />
-    <Content Include="Views\Novedades\Create.cshtml" />
+    <Content Include="Views\Novedades\CreateNovedad.cshtml" />
     <Content Include="Views\NuestroStaff\CreateLawyer.cshtml" />
     <Content Include="Views\NuestroStaff\CreateEmployee.cshtml" />
   </ItemGroup>

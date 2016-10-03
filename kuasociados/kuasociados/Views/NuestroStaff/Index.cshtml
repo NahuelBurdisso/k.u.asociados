@@ -1,7 +1,91 @@
-﻿
+﻿@model kuasociados.Models.NuestroStaffModel
+
+
+
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<section class="nuestrostaff pbl">
+    <section class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h1>Nuestro Staff</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row margin-bottom-2">
+                    <div class="col-md-12 text-center">
+                        <h3>Empleados</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    @foreach (var employee in Model.employees)
+                    {
+                        <div class="col-md-6 margin-bottom">
+                            <a href="">
+                                <div class="thumbnail text-center">
+                                    <img src="@employee.profileImg" alt="Abogado" class="img-responsive" />
+                                    <p class="caption ">@employee.firstName @employee.lastName</p>
+                                    <p class="caption ">@employee.job</p>
+                                </div>
+                            </a>
+                        </div>     
+                    }
+                  
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row mbl">
+                    <div class="col-md-12 text-center">
+                        <h3>Abogados</h3>
+                    </div>
+                </div>
+                <div class="row mvs">
+                    <div class="col-md-12">
+                        <div class="button-group filter-button-group">
+                            <button data-filter="*" class="btn">Mostrar Todos</button>
+                            <button data-filter=".penal" class="btn">Derecho penal</button>
+                            <button data-filter=".domesticas" class="btn">Relaciones domésticas</button>
+                            <button data-filter=".comercial" class="btn">Derecho empresarial y comercial</button>
+                            <button data-filter=".raices"class="btn">Bienes raíces y Inmigración</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="grid">
+                        @foreach (var lawyer in Model.lawyers)
+                        {
+                            switch (@lawyer.specialty.idSpecialty)
+                            {
+                                case 1:
+                                    <div class="grid-item col-md-6 penal">
+                                        <a href="">
+                                            <div class="thumbnail text-center">
+                                                <img src="@lawyer.profileImg" alt="Abogado" class="img-responsive" />
+                                                <p class="caption ">@lawyer.firstName @lawyer.lastName</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    break;
+                                case 2:
+                                    <div class="col-md-6 grid-item domesticas">
+                                        <a href="">
+                                            <div class="thumbnail text-center">
+                                                <img src="@lawyer.profileImg" alt="Abogado" class="img-responsive" />
+                                                <p class="caption ">@lawyer.firstName @lawyer.lastName</p>
+                                            </div>
+                                        </a>
+                                    </div> 
+                                 break;
+
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
 
