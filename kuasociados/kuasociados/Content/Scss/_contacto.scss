@@ -1,0 +1,53 @@
+﻿.contacto{
+    background-color: lightgray;
+    h3{
+        color: white;
+    }
+    .panel{
+        background-color: rgb(100,0,0);
+         border:2px solid #FFFFFF;
+        border-radius:0px ;
+         box-shadow: 0px 0px 8px #DCDCDC; 
+        -webkit-box-shadow: 0px 0px 8px #DCDCDC; 
+        -moz-box-shadow: 0px 0px 8px #DCDCDC; 
+    }
+     &_ul{
+        li{
+            width: 100%;
+            margin-bottom: 32px;
+            padding: 0 10px;
+        }
+        span,img,i{
+            color: white ;
+            float: left;
+            margin-right: 15px; 
+            width:26px;
+            height: 32px;
+            padding-bottom: 8px;
+        }
+        p{
+            overflow: hidden;
+            font: 400 1.6rem / 1.8rem 'Courgette';
+            color: white;  
+            vertical-align: middle;
+        }
+        a{
+            p{
+                color:white;
+            }
+            &:hover{
+                p{
+                    color: rgb(200,0,0);
+                }
+            }
+        }
+    }
+
+     .map{
+        min-width: 300px;
+        min-height: 300px;
+        width: 100%;
+        height: 100%;
+    }
+}
+

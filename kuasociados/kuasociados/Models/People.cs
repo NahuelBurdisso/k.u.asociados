@@ -17,7 +17,7 @@ namespace kuasociados.Models
 
         [Required(ErrorMessage = "El campo no puede estar vacío.")]
         [StringLength(160, MinimumLength = 3)]
-        [Display(Name = "Apellidos:")]
+        [Display(Name = "Apellido:")]
         public virtual string lastName { get; set; }
 
         [Required(ErrorMessage = "El campo no puede estar vacío")]
@@ -41,9 +41,9 @@ namespace kuasociados.Models
         public virtual string gender { get; set; }
 
         [Required(ErrorMessage = "El campo no puede estar vacío")]
-        [DataType(DataType.DateTime)]
+        [DataType(DataType.Date)]
         [Display(Name = "Ingrese una fecha de nacimiento:")]
-        public string bornDate { get; set; }
+        public DateTime bornDate { get; set; }
 
         [Required(ErrorMessage = "El campo no puede estar vacío.")]
         [StringLength(160, MinimumLength = 3)]

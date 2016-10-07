@@ -85,7 +85,9 @@ namespace kuasociados.Controllers
         [HttpPost]
         public ActionResult CreateLawyer(Lawyer lawyer)
         {
-
+            /**BUSCAR ID PEOPLE */
+            /**BUSCAR ID LAWYER */
+            lawyer.caseList = new List<Case>();
             if (ModelState.IsValid)
             {
                 return RedirectToAction("Index");
@@ -103,7 +105,8 @@ namespace kuasociados.Controllers
         [HttpPost]
         public ActionResult CreateEmployee(Employee employee)
         {
-
+            /**BUSCAR ID PEOPLE */
+            /**BUSCAR ID EMPLOYEE */
             if (ModelState.IsValid)
             {
                 return RedirectToAction("Index");
@@ -111,6 +114,25 @@ namespace kuasociados.Controllers
             else
             {
                 return View(employee);
+            }
+        }
+        public ActionResult CreateSpecialty()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult CreateSpecialty(Specialty specialty)
+        {
+            /*BUSCAR PROXIMO ID*/
+            specialty.lawyerList = new List<Lawyer>();
+            if (ModelState.IsValid)
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View(specialty);
             }
         }
     }

@@ -199,6 +199,7 @@
     <Compile Include="Controllers\ContactoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MyCasesController.cs" />
     <Compile Include="Controllers\NovedadesController.cs" />
     <Compile Include="Controllers\NuestroStaffController.cs" />
     <Compile Include="Global.asax.cs">
@@ -233,6 +234,7 @@
     <Content Include="Content\Scss\main.min.css">
       <DependentUpon>main.css</DependentUpon>
     </Content>
+    <None Include="Content\Scss\_contacto.scss" />
     <Content Include="Content\Scss\_form.scss" />
     <None Include="Content\Scss\_reset.scss" />
     <None Include="Content\Scss\_marginpadding.scss" />
@@ -310,6 +312,8 @@
     <Content Include="Views\Novedades\CreateNovedad.cshtml" />
     <Content Include="Views\NuestroStaff\CreateLawyer.cshtml" />
     <Content Include="Views\NuestroStaff\CreateEmployee.cshtml" />
+    <Content Include="Views\NuestroStaff\CreateSpecialty.cshtml" />
+    <Content Include="Views\MyCases\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -321,6 +325,12 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\kuasociados.Services\kuasociados.Services.csproj">
+      <Project>{01e1bea3-9786-4046-9f93-9438c8692ec4}</Project>
+      <Name>kuasociados.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

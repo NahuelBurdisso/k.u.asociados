@@ -11,6 +11,7 @@
 @import "_register.scss";
 @import "_nuestrostaff.scss";
 @import "_login.scss";
+@import "_contacto.scss";
 body {
     padding-top: 50px;
     min-height: 600px;
@@ -23,12 +24,7 @@ body {
     white-space: normal;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
-}
+
 /* no text decoration for a */
 a{
     text-decoration: none !important;

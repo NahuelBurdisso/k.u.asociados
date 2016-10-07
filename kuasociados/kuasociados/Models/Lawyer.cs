@@ -15,7 +15,7 @@ namespace kuasociados.Models
         public virtual Specialty specialty { get; set; }
 
         [Required(ErrorMessage = "El campo no puede estar vacío.")]
-        [Display(Name = "Imagen de Perfil:")]
+        [Display(Name = "Imagen de Perfil (ruta):")]
         public virtual string profileImg { get; set; } //TODO analizar que tipo es
 
         [Display(Name = "Casos que tiene a cargo:")]

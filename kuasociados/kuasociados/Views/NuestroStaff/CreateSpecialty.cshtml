@@ -1,0 +1,51 @@
+﻿@model kuasociados.Models.Specialty
+
+@{
+    ViewBag.Title = "CreateSpecialty";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="specialty">
+    <div class="row mvxl">
+        <div class="col-md-12 text-center">
+            <h3>Nueva especialdad</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-red">
+                    <div class="form-group">
+                        @Html.HiddenFor(m => m.idSpecialty)
+                    </div>
+                   
+                    <div class="row">
+                        <div class="col-md-offset-4 col-md-4 text-center phm">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.name, htmlAttributes: new { @class = "control-label" })
+                                @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mvm">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <div class="col-md-offset-4 col-md-4 text-center">
+                                    <a href="@(Url.Action("Index" , "Novedades"))">
+                                        <input type="button" value="Cancelar" class="mrs button button--wapasha button--text-thick button--text-upper button--size-s">
+                                    </a>
+                                    <button class="button button--wapasha button--text-thick button--text-upper button--size-s" type="submit" value="Create">Crear</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                }
+            </div>
+        </div>
+</section>
+

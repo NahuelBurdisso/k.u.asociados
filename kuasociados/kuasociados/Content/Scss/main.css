@@ -3,6 +3,30 @@
 .form-red input[type="date"]::-webkit-inner-spin-button {
   display: none; }
 
+.form-red ::-webkit-input-placeholder {
+  /* WebKit, Blink, Edge */
+  color: #fff;
+  font-family: "Josefin Sans";
+  font-size: 19px; }
+
+.form-red :-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #fff;
+  font-family: "Josefin Sans";
+  font-size: 19px; }
+
+.form-red ::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #fff;
+  font-family: "Josefin Sans";
+  font-size: 19px; }
+
+.form-red :-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #fff;
+  font-family: "Josefin Sans";
+  font-size: 19px; }
+
 .form-red .control-label {
   color: #37474f;
   font-family: "Josefin Sans";
@@ -34,7 +58,8 @@
   -webkit-box-shadow: 0px 0px 8px #DCDCDC;
   -moz-box-shadow: 0px 0px 8px #DCDCDC;
   resize: none;
-  width: 100%; }
+  width: 100%;
+  min-height: 200px; }
 
 .form-red label {
   display: block; }
@@ -2044,6 +2069,43 @@ table {
 .nuestrostaff .margin-bottom-2 {
   margin-bottom: 104px; }
 
+.contacto {
+  background-color: lightgray; }
+  .contacto h3 {
+    color: white; }
+  .contacto .panel {
+    background-color: #640000;
+    border: 2px solid #FFFFFF;
+    border-radius: 0px;
+    box-shadow: 0px 0px 8px #DCDCDC;
+    -webkit-box-shadow: 0px 0px 8px #DCDCDC;
+    -moz-box-shadow: 0px 0px 8px #DCDCDC; }
+  .contacto_ul li {
+    width: 100%;
+    margin-bottom: 32px;
+    padding: 0 10px; }
+  .contacto_ul span, .contacto_ul img, .contacto_ul i {
+    color: white;
+    float: left;
+    margin-right: 15px;
+    width: 26px;
+    height: 32px;
+    padding-bottom: 8px; }
+  .contacto_ul p {
+    overflow: hidden;
+    font: 400 1.6rem / 1.8rem 'Courgette';
+    color: white;
+    vertical-align: middle; }
+  .contacto_ul a p {
+    color: white; }
+  .contacto_ul a:hover p {
+    color: #c80000; }
+  .contacto .map {
+    min-width: 300px;
+    min-height: 300px;
+    width: 100%;
+    height: 100%; }
+
 body {
   padding-top: 50px;
   min-height: 600px; }
@@ -2053,12 +2115,6 @@ body {
 */
 .dl-horizontal dt {
   white-space: normal; }
-
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-  max-width: 280px; }
 
 /* no text decoration for a */
 a {
