@@ -22,10 +22,10 @@ namespace kuasociados.Services
 
         public int getLastestId()
         {
-            var result = db.People.ToList();
+            var result = db.Lawyers.ToList();
             if (result != null)
             {
-                int id = db.NewsSet.Last().Id;
+                int id = db.Lawyers.Last().Id;
                 return id;
             }
             else
