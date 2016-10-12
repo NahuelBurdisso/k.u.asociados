@@ -5,7 +5,24 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="b239890de6274e1e85df0b905d665e9d" Name="Diagram1">
-        <EntityTypeShape EntityType="KuasociadosModel.Localidad" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KuasociadosModel.Cases" Width="1.5" PointX="5" PointY="5" />
+        <EntityTypeShape EntityType="KuasociadosModel.Clients" Width="1.5" PointX="2.75" PointY="2.375" />
+        <EntityTypeShape EntityType="KuasociadosModel.Employees" Width="1.5" PointX="5.75" PointY="2.375" />
+        <EntityTypeShape EntityType="KuasociadosModel.Lawyers" Width="1.5" PointX="2.75" PointY="5.125" />
+        <EntityTypeShape EntityType="KuasociadosModel.News" Width="1.5" PointX="0.875" PointY="1" />
+        <EntityTypeShape EntityType="KuasociadosModel.Notifications" Width="1.5" PointX="3.375" PointY="9.375" />
+        <EntityTypeShape EntityType="KuasociadosModel.Persons" Width="1.5" PointX="8" PointY="4.375" />
+        <EntityTypeShape EntityType="KuasociadosModel.Specialties" Width="1.5" PointX="0.5" PointY="5.375" />
+        <EntityTypeShape EntityType="KuasociadosModel.States" Width="1.5" PointX="7.25" PointY="9.125" />
+        <EntityTypeShape EntityType="KuasociadosModel.sysdiagrams" Width="1.5" PointX="0.5" PointY="9" />
+        <AssociationConnector Association="KuasociadosModel.FK_Cases_Clients" />
+        <AssociationConnector Association="KuasociadosModel.FK_Cases_Lawyers" />
+        <AssociationConnector Association="KuasociadosModel.FK_States_Cases" />
+        <AssociationConnector Association="KuasociadosModel.FK_Persons_Clients" />
+        <AssociationConnector Association="KuasociadosModel.FK_Persons_Employees" />
+        <AssociationConnector Association="KuasociadosModel.FK_Lawyers_Specialties" />
+        <AssociationConnector Association="KuasociadosModel.FK_Notifications_Lawyers" />
+        <AssociationConnector Association="KuasociadosModel.FK_Persons_Lawyers" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

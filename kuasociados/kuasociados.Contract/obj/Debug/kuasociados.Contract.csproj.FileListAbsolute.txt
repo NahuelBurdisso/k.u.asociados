@@ -1,0 +1,10 @@
+C:\Users\Usuario1\Desktop\Facultad\Capacitacion\TrabajoPráctico\Webpage\k.u.asociados\kuasociados\kuasociados.Contract\bin\Debug\kuasociados.Contract.dll
+C:\Users\Usuario1\Desktop\Facultad\Capacitacion\TrabajoPráctico\Webpage\k.u.asociados\kuasociados\kuasociados.Contract\bin\Debug\kuasociados.Contract.pdb
+C:\Users\Usuario1\Desktop\Facultad\Capacitacion\TrabajoPráctico\Webpage\k.u.asociados\kuasociados\kuasociados.Contract\obj\Debug\kuasociados.Contract.csprojResolveAssemblyReference.cache
+C:\Users\Usuario1\Desktop\Facultad\Capacitacion\TrabajoPráctico\Webpage\k.u.asociados\kuasociados\kuasociados.Contract\obj\Debug\kuasociados.Contract.dll
+C:\Users\Usuario1\Desktop\Facultad\Capacitacion\TrabajoPráctico\Webpage\k.u.asociados\kuasociados\kuasociados.Contract\obj\Debug\kuasociados.Contract.pdb
+C:\Users\Usuario1\Desktop\Facultad\Capacitacion\TrabajoPráctico\Webpage\k.u.asociados\kuasociados\kuasociados.Contract\bin\Debug\kuasociados.Contract.dll.config
+C:\Users\Usuario1\Desktop\Facultad\Capacitacion\TrabajoPráctico\Webpage\k.u.asociados\kuasociados\kuasociados.Contract\bin\Debug\EntityFramework.dll
+C:\Users\Usuario1\Desktop\Facultad\Capacitacion\TrabajoPráctico\Webpage\k.u.asociados\kuasociados\kuasociados.Contract\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Usuario1\Desktop\Facultad\Capacitacion\TrabajoPráctico\Webpage\k.u.asociados\kuasociados\kuasociados.Contract\bin\Debug\EntityFramework.xml
+C:\Users\Usuario1\Desktop\Facultad\Capacitacion\TrabajoPráctico\Webpage\k.u.asociados\kuasociados\kuasociados.Contract\bin\Debug\EntityFramework.SqlServer.xml

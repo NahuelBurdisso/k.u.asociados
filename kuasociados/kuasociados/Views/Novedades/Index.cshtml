@@ -1,6 +1,4 @@
-﻿@model kuasociados.Models.News
-
-
+﻿@model IEnumerable<kuasociados.Contract.Models.NewsModel>
 
 @{
     ViewBag.Title = "Index";
@@ -19,28 +17,47 @@
         </div>
         <div class="row">
             <div class="col-md-8">
-                <div class="grid cs-style-6">
-                   
+                @foreach (var news in Model)
+                {
+                    <div class="grid cs-style-6">
                     <figure>
-                        <img src="../Content/img/background-10.jpg" alt="imagen-noticia" class="" />
+                        <img src="@news.Img" alt="imagen-noticia" class="img-responsive" />
                         <figcaption>
-                            <p>Titulo de la noticia<br>
-                               Subtitlo<br>
-                            <span class="author">Autor</span>
-                            <br><span>Fecha </span>
+                            <p>
+                                @news.Title<br>
+                                <span class="subtitle">@news.Subtitle</span><br>
+                                <span class="author">@news.Author</span>
+                                <br><span class="date">@news.PublishDate</span>
                             </p>
-                            
-                            <a href="/">Ver noticia</a>  
+
+                            <a href="@Url.Action("Details","Novedades", new { id = @news.Id})">Ver noticia</a>
                         </figcaption>
                     </figure>
+                     @*MODAL*@
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">Esta seguro de que desea eliminar esta noticia?</h4>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+                                    <a class="btn btn-primary" href="@Url.Action("DeleteConfirmed", "Novedades", new { id = @news.Id })">Sí</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     @if (i == "hola")
                     {
 
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="pull-right mtxs">
-                                    <button class="btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-                                    <button class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i></button>
+                                    @*<a class="btn btn-primary" href="@Url.Action("Edit","Novedades", new { id = @news.Id})"><i class="fa fa-pencil" aria-hidden="true"></i></a>*@
+                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">
+                                        <i class="fa fa-times" aria-hidden="true"></i>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -48,10 +65,9 @@
                     else
                     {
 
-                    }    
-                </div>
-                @*for de noticias*@
-
+                    }
+                    </div>
+            }
             </div>
             <div class="col-md-4">
                 <aside>
@@ -73,5 +89,6 @@
             </div>
         </div>
     </div>
+  
     
 </section>

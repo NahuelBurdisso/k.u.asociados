@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="KuasociadosModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="KuasociadosModelStoreContainer">
+    <EntitySet Name="People" EntityType="KuasociadosModel.Store.People" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SpecialtiesSet" EntityType="KuasociadosModel.Store.SpecialtiesSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CasesSet" EntityType="KuasociadosModel.Store.CasesSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="StatesSet" EntityType="KuasociadosModel.Store.StatesSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="NewsSet" EntityType="KuasociadosModel.Store.NewsSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="NotificationsSet" EntityType="KuasociadosModel.Store.NotificationsSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="People_Lawyers" EntityType="KuasociadosModel.Store.People_Lawyers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="People_Clients" EntityType="KuasociadosModel.Store.People_Clients" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="People_Employees" EntityType="KuasociadosModel.Store.People_Employees" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="LawyersSpecialties" Association="KuasociadosModel.Store.LawyersSpecialties">
+      <End Role="Lawyers" EntitySet="People_Lawyers" />
+      <End Role="Specialties" EntitySet="SpecialtiesSet" />
+    </AssociationSet>
+    <AssociationSet Name="CasesStates" Association="KuasociadosModel.Store.CasesStates">
+      <End Role="Cases" EntitySet="CasesSet" />
+      <End Role="States" EntitySet="StatesSet" />
+    </AssociationSet>
+    <AssociationSet Name="LawyersCases" Association="KuasociadosModel.Store.LawyersCases">
+      <End Role="Lawyers" EntitySet="People_Lawyers" />
+      <End Role="Cases" EntitySet="CasesSet" />
+    </AssociationSet>
+    <AssociationSet Name="NotificationsLawyers" Association="KuasociadosModel.Store.NotificationsLawyers">
+      <End Role="Notifications" EntitySet="NotificationsSet" />
+      <End Role="Lawyers" EntitySet="People_Lawyers" />
+    </AssociationSet>
+    <AssociationSet Name="CasesClients" Association="KuasociadosModel.Store.CasesClients">
+      <End Role="Cases" EntitySet="CasesSet" />
+      <End Role="Clients" EntitySet="People_Clients" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Lawyers_inherits_People" Association="KuasociadosModel.Store.FK_Lawyers_inherits_People">
+      <End Role="People" EntitySet="People" />
+      <End Role="Lawyers" EntitySet="People_Lawyers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Clients_inherits_People" Association="KuasociadosModel.Store.FK_Clients_inherits_People">
+      <End Role="People" EntitySet="People" />
+      <End Role="Clients" EntitySet="People_Clients" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employees_inherits_People" Association="KuasociadosModel.Store.FK_Employees_inherits_People">
+      <End Role="People" EntitySet="People" />
+      <End Role="Employees" EntitySet="People_Employees" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="People">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="FirstName" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="LastName" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="Email" Type="nchar" Nullable="false" MaxLength="50" />
+    <Property Name="Dni" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="BornDate" Type="datetime" Nullable="false" />
+    <Property Name="Gender" Type="nchar" Nullable="false" MaxLength="1" />
+    <Property Name="Tel" Type="nchar" Nullable="false" MaxLength="20" />
+    <Property Name="ProfileImg" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="SpecialtiesSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CasesSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InitiationDate" Type="datetime" Nullable="false" />
+    <Property Name="LawyersId" Type="int" Nullable="false" />
+    <Property Name="ClientsId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StatesSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="InitiationDate" Type="datetime" Nullable="false" />
+    <Property Name="Comment" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="CasesId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NewsSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Subtitle" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Img" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Body" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PublishDate" Type="datetime" Nullable="false" />
+    <Property Name="Author" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NotificationsSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LawyersId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="People_Lawyers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="SpecialtiesId" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="People_Clients">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="People_Employees">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Job" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="LawyersSpecialties">
+    <End Role="Lawyers" Type="KuasociadosModel.Store.People_Lawyers" Multiplicity="*" />
+    <End Role="Specialties" Type="KuasociadosModel.Store.SpecialtiesSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Specialties">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Lawyers">
+        <PropertyRef Name="SpecialtiesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CasesStates">
+    <End Role="Cases" Type="KuasociadosModel.Store.CasesSet" Multiplicity="1" />
+    <End Role="States" Type="KuasociadosModel.Store.StatesSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cases">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="States">
+        <PropertyRef Name="CasesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="LawyersCases">
+    <End Role="Lawyers" Type="KuasociadosModel.Store.People_Lawyers" Multiplicity="1" />
+    <End Role="Cases" Type="KuasociadosModel.Store.CasesSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lawyers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cases">
+        <PropertyRef Name="LawyersId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="NotificationsLawyers">
+    <End Role="Notifications" Type="KuasociadosModel.Store.NotificationsSet" Multiplicity="*" />
+    <End Role="Lawyers" Type="KuasociadosModel.Store.People_Lawyers" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Lawyers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Notifications">
+        <PropertyRef Name="LawyersId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CasesClients">
+    <End Role="Cases" Type="KuasociadosModel.Store.CasesSet" Multiplicity="*" />
+    <End Role="Clients" Type="KuasociadosModel.Store.People_Clients" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Clients">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cases">
+        <PropertyRef Name="ClientsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Lawyers_inherits_People">
+    <End Role="People" Type="KuasociadosModel.Store.People" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Lawyers" Type="KuasociadosModel.Store.People_Lawyers" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="People">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Lawyers">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Clients_inherits_People">
+    <End Role="People" Type="KuasociadosModel.Store.People" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Clients" Type="KuasociadosModel.Store.People_Clients" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="People">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Clients">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employees_inherits_People">
+    <End Role="People" Type="KuasociadosModel.Store.People" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Employees" Type="KuasociadosModel.Store.People_Employees" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="People">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Employees">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

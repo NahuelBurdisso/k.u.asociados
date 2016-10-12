@@ -596,13 +596,16 @@ table {
     margin: 0;
     padding: 0;
     color: white;
-    font-family: Courgette;
-    font-size: 19px; }
+    font-family: Josefin Sans;
+    font-size: 22px; }
   .novedades .grid figcaption .author:before {
     content: 'by '; }
-  .novedades .grid figcaption span {
-    font-family: Courgette;
-    font-size: 13px; }
+  .novedades .grid figcaption .date {
+    font-family: Courgette !important;
+    font-size: 14px; }
+  .novedades .grid figcaption .author {
+    font-family: Courgette !important;
+    font-size: 14px; }
   .novedades .grid figcaption a {
     text-align: center;
     padding: 10px 20px;
@@ -631,6 +634,18 @@ table {
     position: absolute;
     bottom: 20px;
     right: 20px; }
+
+.novedad {
+  background-color: #781414; }
+  .novedad h3, .novedad h4 {
+    color: white; }
+  .novedad p {
+    color: white;
+    font-family: Asap;
+    font-size: 19px; }
+  .novedad .author, .novedad .date {
+    font-family: Courgette;
+    font-size: 14px; }
 
 /* Box colors */
 .bg-1 {
@@ -2132,7 +2147,12 @@ h1 {
 h3 {
   color: #37474f;
   font-family: "Josefin Sans";
-  font-size: 29px; }
+  font-size: 37px; }
+
+h4 {
+  color: #37474f;
+  font-family: "Josefin Sans";
+  font-size: 28px; }
 
 .block {
   display: block; }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using kuasociados.Models;
+using kuasociados.Contract.Models;
 
 namespace kuasociados.Controllers
 {
@@ -16,30 +16,30 @@ namespace kuasociados.Controllers
             List<Lawyer> lawyers = new List<Lawyer>();
           
             Specialty specialty1 = new Specialty();
-            specialty1.idSpecialty = 1;
-            specialty1.name = "Derecho Penal";
+            specialty1.Id = 1;
+            specialty1.Description = "Derecho Penal";
             Specialty specialty2 = new Specialty();
-            specialty2.idSpecialty = 2;
-            specialty2.name = "Relaciones Domésticas";
+            specialty2.Id = 2;
+            specialty2.Description = "Relaciones Domésticas";
 
 
             Lawyer lawyer1 = new Lawyer();
-            lawyer1.profileImg = "../Content/img/profile/profile-2.jpg";
-            lawyer1.firstName = "Hernan";
-            lawyer1.lastName = "Escalada";
-            lawyer1.specialty = specialty1;
+            lawyer1.ProfileImg = "../Content/img/profile/profile-2.jpg";
+            lawyer1.FirstName = "Hernan";
+            lawyer1.LastName = "Escalada";
+            lawyer1.Specialty = specialty1;
 
             Lawyer lawyer2= new Lawyer();
-            lawyer2.profileImg = "../Content/img/profile/profile-1.jpg";
-            lawyer2.firstName = "Jose";
-            lawyer2.lastName = "Miranda";
-            lawyer2.specialty = specialty2;
+            lawyer2.ProfileImg = "../Content/img/profile/profile-1.jpg";
+            lawyer2.FirstName = "Jose";
+            lawyer2.LastName = "Miranda";
+            lawyer2.Specialty = specialty2;
 
             Lawyer lawyer3 = new Lawyer();
-            lawyer3.profileImg = "../Content/img/profile/profile-4.jpg";
-            lawyer3.firstName = "Marina";
-            lawyer3.lastName = "López";
-            lawyer3.specialty = specialty2;
+            lawyer3.ProfileImg = "../Content/img/profile/profile-4.jpg";
+            lawyer3.FirstName = "Marina";
+            lawyer3.LastName = "López";
+            lawyer3.Specialty = specialty2;
 
             lawyers.Add(lawyer1);
             lawyers.Add(lawyer2);
@@ -50,22 +50,22 @@ namespace kuasociados.Controllers
             List<Employee> employees = new List<Employee>();
 
             Employee employee1 = new Employee();
-            employee1.profileImg = "../Content/img/profile/profile-6.jpg";
-            employee1.firstName = "Martín";
-            employee1.lastName = "Moralez";
-            employee1.job = "Recepcionista";
+            employee1.ProfileImg = "../Content/img/profile/profile-6.jpg";
+            employee1.FirstName = "Martín";
+            employee1.LastName = "Moralez";
+            employee1.Job = "Recepcionista";
 
             Employee employee2 = new Employee();
-            employee2.profileImg = "../Content/img/profile/profile-5.jpg";
-            employee2.firstName = "Ana";
-            employee2.lastName = "Burdisso";
-            employee2.job = "Investigadora Privada";
+            employee2.ProfileImg = "../Content/img/profile/profile-5.jpg";
+            employee2.FirstName = "Ana";
+            employee2.LastName = "Burdisso";
+            employee2.Job = "Investigadora Privada";
 
             Employee employee3 = new Employee();
-            employee3.profileImg = "../Content/img/profile/profile-10.jpg";
-            employee3.firstName = "Romina";
-            employee3.lastName = "Perren";
-            employee3.job = "Cosultora Financiera";
+            employee3.ProfileImg = "../Content/img/profile/profile-10.jpg";
+            employee3.FirstName = "Romina";
+            employee3.LastName = "Perren";
+            employee3.Job = "Cosultora Financiera";
 
             employees.Add(employee1);
             employees.Add(employee2);
@@ -125,7 +125,7 @@ namespace kuasociados.Controllers
         public ActionResult CreateSpecialty(Specialty specialty)
         {
             /*BUSCAR PROXIMO ID*/
-            specialty.lawyerList = new List<Lawyer>();
+            specialty.LawyerList = new List<Lawyer>();
             if (ModelState.IsValid)
             {
                 return RedirectToAction("Index");

@@ -1,4 +1,4 @@
-﻿@model kuasociados.Models.Lawyer
+﻿@model kuasociados.Contract.Models.Lawyer
 
 @{
     ViewBag.Title = "Index";
@@ -21,22 +21,22 @@
                         <div class="well">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <p class="">Abogado a cargo: <span>@caso.lawyer.firstName @caso.lawyer.lastName</span></p>
+                                    <p class="">Abogado a cargo: <span>@caso.Lawyer.FirstName @caso.Lawyer.LastName</span></p>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <p class="">Fecha de inicio: <span> @caso.initiationDate </span></p>
+                                    <p class="">Fecha de inicio: <span> @caso.InitiationDate </span></p>
                                 </div>
                             </div>    
                             <div class="row">
                                 <div class="col-md-12">
                                     <h4>Historial</h4>
-                                    @foreach (var estado in caso.stateHistory) {
+                                    @foreach (var estado in caso.StateHistory) {
                                         <div class="panel">
-                                            <p>@estado.name</p>
-                                            <p>@estado.initiationDate</p>
-                                            <p>@estado.comment</p>           
+                                            <p>@estado.Description</p>
+                                            <p>@estado.InitiationDate</p>
+                                            <p>@estado.Comment</p>           
                                         </div>
                                     }
                                 </div>

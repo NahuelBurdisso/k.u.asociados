@@ -9,8 +9,6 @@ namespace kuasociados.Contract
 {
     public interface IUserService
     {
-        void saveUser();
-        void getUserById();
-  
+        
     }
 }

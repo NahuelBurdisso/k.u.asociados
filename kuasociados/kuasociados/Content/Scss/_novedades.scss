@@ -43,16 +43,20 @@
 	    margin: 0;
 	    padding: 0;
 	    color: white;
-        font-family: Courgette;
-        font-size: 19px;
+        font-family: Josefin Sans;
+        font-size: 22px;
     }
 
     .grid figcaption .author:before {
 	    content: 'by ';
     }
-    .grid figcaption span{
-        font-family: Courgette;
-        font-size: 13px;
+    .grid figcaption .date{
+        font-family: Courgette !important;
+        font-size: 14px;
+    }
+    .grid figcaption .author{
+        font-family: Courgette !important;
+        font-size: 14px;
     }
 
     .grid figcaption a {
@@ -92,5 +96,20 @@
 	    position: absolute;
 	    bottom: 20px;
 	    right: 20px;
+    }
+}
+.novedad{
+    background-color: rgb(120,20,20);
+    h3,h4{
+        color: white;
+    }
+    p{
+        color: white;
+        font-family: Asap;
+        font-size: 19px;
+    }
+    .author,.date{
+        font-family: Courgette;
+        font-size: 14px;
     }
 }

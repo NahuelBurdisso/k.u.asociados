@@ -1,0 +1,30 @@
+﻿@model kuasociados.Contract.Models.NewsModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="novedad">
+    <div class="container pvxl">
+        <div class="row mbm">
+            <div class="col-md-6 col-md-offset-3 text-center">
+                <img src="@Model.Img" alt="kuasociados-Novedad" class="img-responsive"/>
+            </div>
+        </div>
+        <div class="row mbm">
+            <div class="col-md-6 col-md-offset-3 text-center">
+                <h3 class="mbm">@Model.Title</h3>
+                <h4>@Model.Subtitle</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3     text-left">
+                <p class="mbs">@Model.Body</p>
+                <p class="author">@Model.Author</p>
+                <p class="date">@Model.PublishDate</p>
+            </div>
+        </div>
+    </div>
+</section>
+
