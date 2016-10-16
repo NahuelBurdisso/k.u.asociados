@@ -10,7 +10,7 @@ namespace kuasociados.Contract
     public interface ILawyerService
     {
         int getLastestId();
-        Lawyer getLawyerById(int id);
+        Lawyer getLawyerById(int? id);
         List<Lawyer> getLawyers();
         void saveLawyer(Lawyer lawyer);
 

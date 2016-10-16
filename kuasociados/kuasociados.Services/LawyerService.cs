@@ -93,7 +93,7 @@ namespace kuasociados.Services
             }
             return lawyers1;
         }
-        public void saveLawyers(Lawyer lawyer)
+        public void saveLawyer(Lawyer lawyer)
         {
             Lawyers lawyer1 = new Lawyers()
             {
@@ -122,7 +122,7 @@ namespace kuasociados.Services
             db.SaveChanges();
         }
 
-        public void editNews(Lawyer lawyer)
+        public void editLawyer(Lawyer lawyer)
         {
             var result = db.Lawyers.SingleOrDefault(x => x.Id == lawyer.Id);
             if (result != null)
@@ -141,6 +141,11 @@ namespace kuasociados.Services
                 result.Persons.Tel = lawyer.Tel;
                 db.SaveChanges();
             }
+        }
+
+        public List<Notification> getNotifications(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

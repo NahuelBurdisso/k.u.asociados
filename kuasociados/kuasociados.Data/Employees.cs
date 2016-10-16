@@ -16,6 +16,7 @@ namespace kuasociados.Data
     {
         public int Id { get; set; }
         public string Job { get; set; }
+        public Nullable<int> IdPerson { get; set; }
     
         public virtual Persons Persons { get; set; }
     }

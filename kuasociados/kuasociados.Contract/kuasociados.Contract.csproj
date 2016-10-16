@@ -49,10 +49,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IClientService.cs" />
+    <Compile Include="INotificationService.cs" />
+    <Compile Include="IStateService.cs" />
+    <Compile Include="ICaseService.cs" />
     <Compile Include="ISpecialtyService.cs" />
     <Compile Include="ILawyerService.cs" />
     <Compile Include="INewsService.cs" />
     <Compile Include="IEmployeeService.cs" />
+    <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="Models\Case.cs" />
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\Employee.cs" />

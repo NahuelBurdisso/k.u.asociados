@@ -18,5 +18,7 @@ namespace kuasociados.Contract.Models
         [Display(Name = "Casos que tiene a cargo:")]
         public virtual List<Case> caseList { get; set; }
 
+        public virtual int IdPerson { get; set; }
+
     }
 }

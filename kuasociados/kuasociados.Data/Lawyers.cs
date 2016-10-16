@@ -23,12 +23,13 @@ namespace kuasociados.Data
     
         public int Id { get; set; }
         public int IdSpecialty { get; set; }
+        public Nullable<int> IdPerson { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Cases> Cases { get; set; }
+        public virtual Persons Persons { get; set; }
         public virtual Specialties Specialties { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Notifications> Notifications { get; set; }
-        public virtual Persons Persons { get; set; }
     }
 }

@@ -24,7 +24,7 @@ namespace kuasociados.Contract.Models
         [Required(ErrorMessage = "El campo no puede estar vacío")]
         [DataType(DataType.DateTime)]
         [Display(Name = "Fecha de iniciación:")]
-        public string InitiationDate { get; set; }  
+        public DateTime InitiationDate { get; set; }  
 
         [Display(Name = "Historial:")]
         public virtual List<State> StateHistory { get; set; }

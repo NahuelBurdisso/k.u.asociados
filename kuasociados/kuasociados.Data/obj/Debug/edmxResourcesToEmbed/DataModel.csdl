@@ -1,103 +1,283 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="KuasociadosModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityContainer Name="KuasociadosEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="People" EntityType="KuasociadosModel.People" />
-    <EntitySet Name="SpecialtiesSet" EntityType="KuasociadosModel.Specialties" />
-    <AssociationSet Name="LawyersSpecialties" Association="KuasociadosModel.LawyersSpecialties">
-      <End Role="Lawyers" EntitySet="People" />
-      <End Role="Specialties" EntitySet="SpecialtiesSet" />
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(KuasociadosModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(KuasociadosModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <EntitySet Name="Cases" EntityType="KuasociadosModel.Cases" />
+    <EntitySet Name="Clients" EntityType="KuasociadosModel.Clients" />
+    <EntitySet Name="Employees" EntityType="KuasociadosModel.Employees" />
+    <EntitySet Name="Lawyers" EntityType="KuasociadosModel.Lawyers" />
+    <EntitySet Name="News" EntityType="KuasociadosModel.News" />
+    <EntitySet Name="Notifications" EntityType="KuasociadosModel.Notifications" />
+    <EntitySet Name="Persons" EntityType="KuasociadosModel.Persons" />
+    <EntitySet Name="Specialties" EntityType="KuasociadosModel.Specialties" />
+    <EntitySet Name="States" EntityType="KuasociadosModel.States" />
+    <EntitySet Name="sysdiagrams" EntityType="KuasociadosModel.sysdiagrams" />
+    <EntitySet Name="Users" EntityType="KuasociadosModel.Users" />
+    <EntitySet Name="webpages_Membership" EntityType="KuasociadosModel.webpages_Membership" />
+    <EntitySet Name="webpages_OAuthMembership" EntityType="KuasociadosModel.webpages_OAuthMembership" />
+    <EntitySet Name="webpages_Roles" EntityType="KuasociadosModel.webpages_Roles" />
+    <AssociationSet Name="FK_Cases_Clients" Association="KuasociadosModel.FK_Cases_Clients">
+      <End Role="Clients" EntitySet="Clients" />
+      <End Role="Cases" EntitySet="Cases" />
     </AssociationSet>
-    <EntitySet Name="CasesSet" EntityType="KuasociadosModel.Cases" />
-    <EntitySet Name="StatesSet" EntityType="KuasociadosModel.States" />
-    <AssociationSet Name="CasesStates" Association="KuasociadosModel.CasesStates">
-      <End Role="Cases" EntitySet="CasesSet" />
-      <End Role="States" EntitySet="StatesSet" />
+    <AssociationSet Name="FK_Cases_Lawyers" Association="KuasociadosModel.FK_Cases_Lawyers">
+      <End Role="Lawyers" EntitySet="Lawyers" />
+      <End Role="Cases" EntitySet="Cases" />
     </AssociationSet>
-    <AssociationSet Name="LawyersCases" Association="KuasociadosModel.LawyersCases">
-      <End Role="Lawyers" EntitySet="People" />
-      <End Role="Cases" EntitySet="CasesSet" />
+    <AssociationSet Name="FK_States_Cases" Association="KuasociadosModel.FK_States_Cases">
+      <End Role="Cases" EntitySet="Cases" />
+      <End Role="States" EntitySet="States" />
     </AssociationSet>
-    <EntitySet Name="NewsSet" EntityType="KuasociadosModel.News" />
-    <EntitySet Name="NotificationsSet" EntityType="KuasociadosModel.Notifications" />
-    <AssociationSet Name="NotificationsLawyers" Association="KuasociadosModel.NotificationsLawyers">
-      <End Role="Notifications" EntitySet="NotificationsSet" />
-      <End Role="Lawyers" EntitySet="People" />
+    <AssociationSet Name="FK_Clients_Persons" Association="KuasociadosModel.FK_Clients_Persons">
+      <End Role="Persons" EntitySet="Persons" />
+      <End Role="Clients" EntitySet="Clients" />
     </AssociationSet>
-    <AssociationSet Name="CasesClients" Association="KuasociadosModel.CasesClients">
-      <End Role="Cases" EntitySet="CasesSet" />
-      <End Role="Clients" EntitySet="People" />
+    <AssociationSet Name="FK_Employees_Persons" Association="KuasociadosModel.FK_Employees_Persons">
+      <End Role="Persons" EntitySet="Persons" />
+      <End Role="Employees" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Lawyers_Persons" Association="KuasociadosModel.FK_Lawyers_Persons">
+      <End Role="Persons" EntitySet="Persons" />
+      <End Role="Lawyers" EntitySet="Lawyers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Lawyers_Specialties" Association="KuasociadosModel.FK_Lawyers_Specialties">
+      <End Role="Specialties" EntitySet="Specialties" />
+      <End Role="Lawyers" EntitySet="Lawyers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Notifications_Lawyers" Association="KuasociadosModel.FK_Notifications_Lawyers">
+      <End Role="Lawyers" EntitySet="Lawyers" />
+      <End Role="Notifications" EntitySet="Notifications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Persons" Association="KuasociadosModel.FK_Users_Persons">
+      <End Role="Persons" EntitySet="Persons" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="webpages_UsersInRoles" Association="KuasociadosModel.webpages_UsersInRoles">
+      <End Role="webpages_Roles" EntitySet="webpages_Roles" />
+      <End Role="Users" EntitySet="Users" />
     </AssociationSet>
   </EntityContainer>
-  <EntityType Name="People">
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="Cases">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" />
-    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
-    <Property Name="LastName" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
-    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
-    <Property Name="Dni" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
-    <Property Name="BornDate" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="Gender" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="true" />
-    <Property Name="Tel" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="true" />
-    <Property Name="ProfileImg" Type="String" Nullable="true" />
+    <Property Name="IdClient" Type="Int32" Nullable="false" />
+    <Property Name="IdLawyer" Type="Int32" Nullable="false" />
+    <Property Name="InitiationDate" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Clients" Relationship="KuasociadosModel.FK_Cases_Clients" FromRole="Cases" ToRole="Clients" />
+    <NavigationProperty Name="Lawyers" Relationship="KuasociadosModel.FK_Cases_Lawyers" FromRole="Cases" ToRole="Lawyers" />
+    <NavigationProperty Name="States" Relationship="KuasociadosModel.FK_States_Cases" FromRole="Cases" ToRole="States" />
   </EntityType>
-  <EntityType Name="Lawyers" BaseType="KuasociadosModel.People">
-    <NavigationProperty Name="Specialty" Relationship="KuasociadosModel.LawyersSpecialties" FromRole="Lawyers" ToRole="Specialties" />
-    <Property Name="SpecialtiesId" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Cases" Relationship="KuasociadosModel.LawyersCases" FromRole="Lawyers" ToRole="Cases" />
-    <NavigationProperty Name="Notifications" Relationship="KuasociadosModel.NotificationsLawyers" FromRole="Lawyers" ToRole="Notifications" />
+  <EntityType Name="Clients">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdPerson" Type="Int32" />
+    <NavigationProperty Name="Cases" Relationship="KuasociadosModel.FK_Cases_Clients" FromRole="Clients" ToRole="Cases" />
+    <NavigationProperty Name="Persons" Relationship="KuasociadosModel.FK_Clients_Persons" FromRole="Clients" ToRole="Persons" />
+  </EntityType>
+  <EntityType Name="Employees">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Job" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IdPerson" Type="Int32" />
+    <NavigationProperty Name="Persons" Relationship="KuasociadosModel.FK_Employees_Persons" FromRole="Employees" ToRole="Persons" />
+  </EntityType>
+  <EntityType Name="Lawyers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdSpecialty" Type="Int32" Nullable="false" />
+    <Property Name="IdPerson" Type="Int32" />
+    <NavigationProperty Name="Cases" Relationship="KuasociadosModel.FK_Cases_Lawyers" FromRole="Lawyers" ToRole="Cases" />
+    <NavigationProperty Name="Persons" Relationship="KuasociadosModel.FK_Lawyers_Persons" FromRole="Lawyers" ToRole="Persons" />
+    <NavigationProperty Name="Specialties" Relationship="KuasociadosModel.FK_Lawyers_Specialties" FromRole="Lawyers" ToRole="Specialties" />
+    <NavigationProperty Name="Notifications" Relationship="KuasociadosModel.FK_Notifications_Lawyers" FromRole="Lawyers" ToRole="Notifications" />
+  </EntityType>
+  <EntityType Name="News">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="Body" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Subtitle" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="Img" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="PublishDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Author" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Notifications">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IdLawyer" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Lawyers" Relationship="KuasociadosModel.FK_Notifications_Lawyers" FromRole="Notifications" ToRole="Lawyers" />
+  </EntityType>
+  <EntityType Name="Persons">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="Dni" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="Gender" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="BornDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="City" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="Province" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="Codep" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="ProfileImg" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="Tel" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Clients" Relationship="KuasociadosModel.FK_Clients_Persons" FromRole="Persons" ToRole="Clients" />
+    <NavigationProperty Name="Employees" Relationship="KuasociadosModel.FK_Employees_Persons" FromRole="Persons" ToRole="Employees" />
+    <NavigationProperty Name="Lawyers" Relationship="KuasociadosModel.FK_Lawyers_Persons" FromRole="Persons" ToRole="Lawyers" />
+    <NavigationProperty Name="Users" Relationship="KuasociadosModel.FK_Users_Persons" FromRole="Persons" ToRole="Users" />
   </EntityType>
   <EntityType Name="Specialties">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Description" Type="String" Nullable="false" />
-    <NavigationProperty Name="Lawyers" Relationship="KuasociadosModel.LawyersSpecialties" FromRole="Specialties" ToRole="Lawyers" />
-  </EntityType>
-  <Association Name="LawyersSpecialties">
-    <End Type="KuasociadosModel.Lawyers" Role="Lawyers" Multiplicity="*" />
-    <End Type="KuasociadosModel.Specialties" Role="Specialties" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="Specialties">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Lawyers">
-        <PropertyRef Name="SpecialtiesId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <EntityType Name="Employees" BaseType="KuasociadosModel.People">
-    <Property Name="Job" Type="String" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Clients" BaseType="KuasociadosModel.People">
-    <NavigationProperty Name="Cases" Relationship="KuasociadosModel.CasesClients" FromRole="Clients" ToRole="Cases" />
-  </EntityType>
-  <EntityType Name="Cases">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="InitiationDate" Type="DateTime" Nullable="false" />
-    <NavigationProperty Name="States" Relationship="KuasociadosModel.CasesStates" FromRole="Cases" ToRole="States" />
-    <NavigationProperty Name="Lawyer" Relationship="KuasociadosModel.LawyersCases" FromRole="Cases" ToRole="Lawyers" />
-    <Property Name="LawyersId" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Client" Relationship="KuasociadosModel.CasesClients" FromRole="Cases" ToRole="Clients" />
-    <Property Name="ClientsId" Type="Int32" Nullable="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Lawyers" Relationship="KuasociadosModel.FK_Lawyers_Specialties" FromRole="Specialties" ToRole="Lawyers" />
   </EntityType>
   <EntityType Name="States">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Description" Type="String" Nullable="false" />
-    <Property Name="InitiationDate" Type="DateTime" Nullable="false" />
-    <Property Name="Comment" Type="String" Nullable="true" />
-    <NavigationProperty Name="Case" Relationship="KuasociadosModel.CasesStates" FromRole="States" ToRole="Cases" />
-    <Property Name="CasesId" Type="Int32" Nullable="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InitiationDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IdCase" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Cases" Relationship="KuasociadosModel.FK_States_Cases" FromRole="States" ToRole="Cases" />
   </EntityType>
-  <Association Name="CasesStates">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="56" FixedLength="false" Unicode="true" />
+    <Property Name="IdPerson" Type="Int32" />
+    <NavigationProperty Name="Persons" Relationship="KuasociadosModel.FK_Users_Persons" FromRole="Users" ToRole="Persons" />
+    <NavigationProperty Name="webpages_Roles" Relationship="KuasociadosModel.webpages_UsersInRoles" FromRole="Users" ToRole="webpages_Roles" />
+  </EntityType>
+  <EntityType Name="webpages_Membership">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="ConfirmationToken" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="IsConfirmed" Type="Boolean" />
+    <Property Name="LastPasswordFailureDate" Type="DateTime" Precision="3" />
+    <Property Name="PasswordFailuresSinceLastSuccess" Type="Int32" Nullable="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="PasswordChangedDate" Type="DateTime" Precision="3" />
+    <Property Name="PasswordSalt" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="PasswordVerificationToken" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="PasswordVerificationTokenExpirationDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="webpages_OAuthMembership">
+    <Key>
+      <PropertyRef Name="Provider" />
+      <PropertyRef Name="ProviderUserId" />
+    </Key>
+    <Property Name="Provider" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="ProviderUserId" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="webpages_Roles">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Users" Relationship="KuasociadosModel.webpages_UsersInRoles" FromRole="webpages_Roles" ToRole="Users" />
+  </EntityType>
+  <Association Name="FK_Cases_Clients">
+    <End Type="KuasociadosModel.Clients" Role="Clients" Multiplicity="1" />
+    <End Type="KuasociadosModel.Cases" Role="Cases" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clients">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cases">
+        <PropertyRef Name="IdClient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cases_Lawyers">
+    <End Type="KuasociadosModel.Lawyers" Role="Lawyers" Multiplicity="1" />
+    <End Type="KuasociadosModel.Cases" Role="Cases" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lawyers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cases">
+        <PropertyRef Name="IdLawyer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_States_Cases">
     <End Type="KuasociadosModel.Cases" Role="Cases" Multiplicity="1" />
     <End Type="KuasociadosModel.States" Role="States" Multiplicity="*" />
     <ReferentialConstraint>
@@ -105,65 +285,84 @@
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="States">
-        <PropertyRef Name="CasesId" />
+        <PropertyRef Name="IdCase" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="LawyersCases">
-    <End Type="KuasociadosModel.Lawyers" Role="Lawyers" Multiplicity="1" />
-    <End Type="KuasociadosModel.Cases" Role="Cases" Multiplicity="*" />
+  <Association Name="FK_Clients_Persons">
+    <End Type="KuasociadosModel.Persons" Role="Persons" Multiplicity="0..1" />
+    <End Type="KuasociadosModel.Clients" Role="Clients" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Lawyers">
+      <Principal Role="Persons">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="Cases">
-        <PropertyRef Name="LawyersId" />
+      <Dependent Role="Clients">
+        <PropertyRef Name="IdPerson" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityType Name="News">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Title" Type="String" Nullable="false" />
-    <Property Name="Subtitle" Type="String" Nullable="false" />
-    <Property Name="Img" Type="String" Nullable="false" />
-    <Property Name="Body" Type="String" Nullable="false" />
-    <Property Name="PublishDate" Type="DateTime" Nullable="false" />
-    <Property Name="Author" Type="String" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Notifications">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Description" Type="String" Nullable="false" />
-    <NavigationProperty Name="Lawyers" Relationship="KuasociadosModel.NotificationsLawyers" FromRole="Notifications" ToRole="Lawyers" />
-    <Property Name="LawyersId" Type="Int32" Nullable="false" />
-  </EntityType>
-  <Association Name="NotificationsLawyers">
-    <End Type="KuasociadosModel.Notifications" Role="Notifications" Multiplicity="*" />
+  <Association Name="FK_Employees_Persons">
+    <End Type="KuasociadosModel.Persons" Role="Persons" Multiplicity="0..1" />
+    <End Type="KuasociadosModel.Employees" Role="Employees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Persons">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Employees">
+        <PropertyRef Name="IdPerson" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Lawyers_Persons">
+    <End Type="KuasociadosModel.Persons" Role="Persons" Multiplicity="0..1" />
+    <End Type="KuasociadosModel.Lawyers" Role="Lawyers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Persons">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Lawyers">
+        <PropertyRef Name="IdPerson" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Lawyers_Specialties">
+    <End Type="KuasociadosModel.Specialties" Role="Specialties" Multiplicity="1" />
+    <End Type="KuasociadosModel.Lawyers" Role="Lawyers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Specialties">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Lawyers">
+        <PropertyRef Name="IdSpecialty" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Notifications_Lawyers">
     <End Type="KuasociadosModel.Lawyers" Role="Lawyers" Multiplicity="1" />
+    <End Type="KuasociadosModel.Notifications" Role="Notifications" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Lawyers">
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Notifications">
-        <PropertyRef Name="LawyersId" />
+        <PropertyRef Name="IdLawyer" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="CasesClients">
-    <End Type="KuasociadosModel.Cases" Role="Cases" Multiplicity="*" />
-    <End Type="KuasociadosModel.Clients" Role="Clients" Multiplicity="1" />
+  <Association Name="FK_Users_Persons">
+    <End Type="KuasociadosModel.Persons" Role="Persons" Multiplicity="0..1" />
+    <End Type="KuasociadosModel.Users" Role="Users" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Clients">
+      <Principal Role="Persons">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="Cases">
-        <PropertyRef Name="ClientsId" />
+      <Dependent Role="Users">
+        <PropertyRef Name="IdPerson" />
       </Dependent>
     </ReferentialConstraint>
+  </Association>
+  <Association Name="webpages_UsersInRoles">
+    <End Type="KuasociadosModel.webpages_Roles" Role="webpages_Roles" Multiplicity="*" />
+    <End Type="KuasociadosModel.Users" Role="Users" Multiplicity="*" />
   </Association>
 </Schema>

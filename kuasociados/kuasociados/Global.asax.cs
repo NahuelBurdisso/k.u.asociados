@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using WebMatrix.Data;
+using WebMatrix.WebData;
 
 namespace kuasociados
 {
@@ -16,7 +18,11 @@ namespace kuasociados
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            
+
+                WebSecurity.InitializeDatabaseConnection("Kuasociados", "Users", "UserId", "UserName", true);
+      
+             
+           
         }
     }
 }

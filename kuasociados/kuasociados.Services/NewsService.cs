@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using kuasociados.Contract.Models;
 using kuasociados.Contract;
 using kuasociados.Data;
+using System.Data.Entity.Validation;
 
 
 
@@ -21,10 +22,10 @@ namespace kuasociados.Services
 
         public int getLastestId()
         {
-            var result = db.NewsSet.ToList().LastOrDefault();
+            var result = db.News.ToList().LastOrDefault();
             if (result != null)
             {
-                int id = db.NewsSet.Last().Id;
+                int id = result.Id;
                 return id;
             }
             else {
@@ -35,7 +36,7 @@ namespace kuasociados.Services
 
         public NewsModel getNewsById(int? id)
         {
-            var news = db.NewsSet.Where(x => (x.Id == id)).SingleOrDefault();
+            var news = db.News.Where(x => (x.Id == id)).SingleOrDefault();
             NewsModel news1 = new NewsModel()
             {
                 Id = news.Id,
@@ -50,7 +51,7 @@ namespace kuasociados.Services
         }
         public List<NewsModel> getNews() {
             List<NewsModel> news1 = new List<NewsModel>();
-            var newslist = db.NewsSet.ToList();
+            var newslist = db.News.ToList();
             foreach (News news in newslist)
             {
                 NewsModel newsitem = new NewsModel()
@@ -69,6 +70,7 @@ namespace kuasociados.Services
             return news1;
         }
         public void saveNews(NewsModel news) {
+
             News news1 = new News()
             {
                 Id = news.Id,
@@ -79,19 +81,20 @@ namespace kuasociados.Services
                 Img = news.Img,
                 PublishDate = news.PublishDate,
             };
-            db.NewsSet.Add(news1);
+            db.News.Add(news1);
+           
             db.SaveChanges();
         }
 
         public void deleteNews(int id)
         {
-           News news = db.NewsSet.Where(x => (x.Id == id)).SingleOrDefault();
-            db.NewsSet.Remove(news);
+           News news = db.News.Where(x => (x.Id == id)).SingleOrDefault();
+            db.News.Remove(news);
             db.SaveChanges();
         }
 
         public void editNews(NewsModel news){
-            var result = db.NewsSet.SingleOrDefault(x => x.Id == news.Id);
+            var result = db.News.SingleOrDefault(x => x.Id == news.Id);
             if (result != null)
             {
                 result.Id = news.Id;

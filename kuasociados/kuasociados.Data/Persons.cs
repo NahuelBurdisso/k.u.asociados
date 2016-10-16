@@ -14,6 +14,15 @@ namespace kuasociados.Data
     
     public partial class Persons
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Persons()
+        {
+            this.Clients = new HashSet<Clients>();
+            this.Employees = new HashSet<Employees>();
+            this.Lawyers = new HashSet<Lawyers>();
+            this.Users = new HashSet<Users>();
+        }
+    
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -27,8 +36,13 @@ namespace kuasociados.Data
         public string ProfileImg { get; set; }
         public string Tel { get; set; }
     
-        public virtual Clients Clients { get; set; }
-        public virtual Employees Employees { get; set; }
-        public virtual Lawyers Lawyers { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Clients> Clients { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Employees> Employees { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Lawyers> Lawyers { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Users> Users { get; set; }
     }
 }

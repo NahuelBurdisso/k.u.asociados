@@ -21,7 +21,7 @@ namespace kuasociados.Data
         }
     
         public int Id { get; set; }
-        public string Job { get; set; }
+        public Nullable<int> IdPerson { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Cases> Cases { get; set; }

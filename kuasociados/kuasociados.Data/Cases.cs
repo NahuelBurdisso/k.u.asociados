@@ -23,7 +23,7 @@ namespace kuasociados.Data
         public int Id { get; set; }
         public int IdClient { get; set; }
         public int IdLawyer { get; set; }
-        public System.DateTime InititationDate { get; set; }
+        public System.DateTime InitiationDate { get; set; }
     
         public virtual Clients Clients { get; set; }
         public virtual Lawyers Lawyers { get; set; }

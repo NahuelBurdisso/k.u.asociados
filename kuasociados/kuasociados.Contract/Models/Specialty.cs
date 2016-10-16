@@ -12,6 +12,6 @@ namespace kuasociados.Contract.Models
 
         [Required(ErrorMessage = "El campo no puede estar vacío.")]
         [Display(Name = "Nombre:")]
-        public virtual string Description { get; set; };
+        public virtual string Description { get; set; }
     }
 }

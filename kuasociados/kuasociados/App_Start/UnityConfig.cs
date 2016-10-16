@@ -40,6 +40,12 @@ namespace kuasociados.App_Start
             // TODO: Register your types here
             // container.RegisterType<IProductRepository, ProductRepository>();
             container.RegisterType<INewsService, NewsService>();
+            container.RegisterType<IUserService, UserService>();
+            container.RegisterType<IStateService, StateService>();
+            container.RegisterType<ISpecialtyService, SpecialtyService>();
+            container.RegisterType<ILawyerService, LawyerService>();
+            container.RegisterType<IClientService, ClientService>();
+            container.RegisterType<ICaseService, CaseService>();
         }
     }
 }

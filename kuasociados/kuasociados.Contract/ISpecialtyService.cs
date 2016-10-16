@@ -9,8 +9,10 @@ namespace kuasociados.Contract
 {
     public interface ISpecialtyService
     {
-        Specialty getSpecialtyById(int id);
+        Specialty getSpecialtyById(int? id);
         List<Specialty> getSpecialties();
+
+        void saveSpecialties(Specialty specialties);
 
     }
 }

@@ -28,7 +28,7 @@ namespace kuasociados.Contract.Models
         [Required(ErrorMessage = "El campo no puede estar vacío")]
         [DataType(DataType.EmailAddress, ErrorMessage = "El email no es válido.")]
         [Display(Name = "Email de confirmación:")]
-        [Compare("email", ErrorMessage = "Los emails no son iguales.")]
+        [Compare("Email", ErrorMessage = "Los emails no son iguales.")]
         public virtual string EmailConfirm { get; set; }
 
         [Required(ErrorMessage = "El campo no puede estar vacío")]

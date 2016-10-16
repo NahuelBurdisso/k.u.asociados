@@ -34,8 +34,8 @@ namespace kuasociados.Services
         public List<Specialty> getSpecialties()
         {
             List<Specialty> specialties1 = new List<Specialty>();
-            var lawyerslist = db.Specialties.ToList();
-            foreach (Specialties specialty in lawyerslist)
+            var specialtieslist = db.Specialties.ToList();
+            foreach (Specialties specialty in specialtieslist)
             {
                 Specialty specialtyitem = new Specialty()
                 {
@@ -47,6 +47,19 @@ namespace kuasociados.Services
             }
             return specialties1;
         }
-        
+
+        public void saveSpecialties(Specialty specialty)
+        {
+            Specialties specialty1 = new Specialties()
+            {
+                Id = specialty.Id,
+                Description = specialty.Description,
+            };
+
+
+            db.Specialties.Add(specialty1);
+            db.SaveChanges();
+        }
+
     }
 }
