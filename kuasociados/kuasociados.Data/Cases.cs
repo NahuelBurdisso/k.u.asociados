@@ -24,6 +24,7 @@ namespace kuasociados.Data
         public int IdClient { get; set; }
         public int IdLawyer { get; set; }
         public System.DateTime InitiationDate { get; set; }
+        public string Description { get; set; }
     
         public virtual Clients Clients { get; set; }
         public virtual Lawyers Lawyers { get; set; }

@@ -14,11 +14,13 @@ namespace kuasociados.Services
     public class LawyerService : ILawyerService
     {
         public KuasociadosEntities db { get; set; }
+        public CaseService caseservice { get; set; }
 
         public LawyerService()
         {
             this.db = new KuasociadosEntities();
-        }
+            
+    }
 
         public int getLastestId()
         {
@@ -58,6 +60,7 @@ namespace kuasociados.Services
                 Codep = lawyer.Persons.Codep,
                 Tel = lawyer.Persons.Tel,
                 Specialty = specialty,
+                caseList = this.caseservice.getCasesbyLawyer(lawyer.Id),
             };
             return lawyer1;
         }
@@ -87,6 +90,8 @@ namespace kuasociados.Services
                     Codep = lawyer.Persons.Codep,
                     Tel = lawyer.Persons.Tel,
                     Specialty = specialty,
+                    caseList = this.caseservice.getCasesbyLawyer(lawyer.Id),
+
                 };
 
                 lawyers1.Add(lawyeritem);

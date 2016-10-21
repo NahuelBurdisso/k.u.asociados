@@ -15,7 +15,7 @@ namespace kuasociados.Contract.Models
 
 
         [Required(ErrorMessage = "El campo no puede estar vacío.")]
-        [Display(Name = "Password:")]
+        [Display(Name = "Contraseña:")]
         public string Password { get; set; }
 
         [Display(Name = "Recordarme")]

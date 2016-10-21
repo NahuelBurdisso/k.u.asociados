@@ -14,12 +14,13 @@ namespace kuasociados.Services
     public class ClientService : IClientService
     {
         public KuasociadosEntities db { get; set; }
-
+        public UserService userservice { get; set; }
+        public CaseService caseservice { get; set; }
         public ClientService()
         {
+            
             this.db = new KuasociadosEntities();
         }
-
         public int getLastestId()
         {
             var result = db.Clients.ToList();
@@ -53,7 +54,8 @@ namespace kuasociados.Services
                 Codep = client.Persons.Codep,
                 Tel = client.Persons.Tel,
             };
-
+            this.caseservice = new CaseService();
+            client1.caseList = this.caseservice.getCasesbyClient(client.Id);
             return client1;
         }
         public List<Client> getClients()
@@ -76,6 +78,7 @@ namespace kuasociados.Services
                     Province = client.Persons.Province,
                     Codep = client.Persons.Codep,
                     Tel = client.Persons.Tel,
+                    caseList = this.caseservice.getCasesbyClient(client.Id),
                 };
 
                 clientsl.Add(clientitem);
@@ -85,6 +88,7 @@ namespace kuasociados.Services
         public void saveClient(RegisterModel client)
         {
             Persons person1 = new Persons();
+            person1.FirstName = client.FirstName;
             person1.LastName = client.LastName;
             person1.Email = client.Email;
             person1.Dni = client.Dni;
@@ -96,13 +100,33 @@ namespace kuasociados.Services
             person1.Codep = client.Codep;
             person1.Tel = client.Tel;
 
-            db.Persons.Add(person1);
-            db.SaveChanges();
+            try
+            {
+                db.Persons.Add(person1);
+                db.SaveChanges();
+            }
+            catch (System.Data.Entity.Validation.DbEntityValidationException e)
+            {
+                foreach (var eve in e.EntityValidationErrors)
+                {
+                    Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+                        eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                    foreach (var ve in eve.ValidationErrors)
+                    {
+                        Console.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
+                            ve.PropertyName, ve.ErrorMessage);
+                    }
+                }
+                throw;
+            }
+            
+            
 
-            var person = db.Persons.Where(x => (x.Dni == person1.Dni)).SingleOrDefault();
+            int newid = this.userservice.getLastestPersonId();
+
 
             Clients client1 = new Clients();
-            client1.IdPerson = person.Id;
+            client1.IdPerson = newid;
 
             db.Clients.Add(client1);
             db.SaveChanges();

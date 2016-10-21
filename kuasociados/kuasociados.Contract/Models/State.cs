@@ -25,7 +25,7 @@ namespace kuasociados.Contract.Models
         public virtual string Comment { get; set; }
 
        
-        public virtual Case Case { get; set; }
+        public virtual int IdCase { get; set; }
 
     }
 }

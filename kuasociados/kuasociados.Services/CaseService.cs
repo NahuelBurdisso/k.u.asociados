@@ -26,39 +26,21 @@ namespace kuasociados.Services
         public Case getCaseById(int? id)
         {
             var _case = db.Cases.Where(x => (x.Id == id)).SingleOrDefault();
-            
+
 
             var case1 = new Case()
             {
                 Id = _case.Id,
-                InitiationDate = _case.InitiationDate, 
+                InitiationDate = _case.InitiationDate,
+                IdLawyer = _case.IdLawyer,
+                IdClient = _case.IdClient,
+                Description = _case.Description,
+                StateHistory = this.stateservice.getStatesbyCase(_case.Id),
             };
 
-            case1.Lawyer = new Lawyer();
-            case1.Lawyer.Id = _case.IdLawyer;
-            case1.Client = new Client();
-            case1.Client.Id = _case.IdClient;
-
             return case1;
         }
-        public List<Case> getCases()
-        {
-            List<Case> case1 = new List<Case>();
-            var caseslist = db.Cases.ToList();
-            
-            foreach (Cases _case in caseslist)
-            {
 
-                Case caseitem = new Case()
-                {
-                    Id = _case.Id,
-                    InitiationDate = _case.InitiationDate,
-                };
-
-                case1.Add(caseitem);
-            }
-            return case1;
-        }
 
         public void saveCases(Case _case)
         {
@@ -66,8 +48,9 @@ namespace kuasociados.Services
             {
                 Id = _case.Id,
                 InitiationDate = _case.InitiationDate,
-                IdLawyer = _case.Lawyer.Id,
-                IdClient = _case.Client.Id,
+                IdLawyer = _case.IdLawyer,
+                IdClient = _case.IdClient,
+                Description = _case.Description,
             };
            
             db.Cases.Add(case1);
@@ -76,12 +59,48 @@ namespace kuasociados.Services
 
         public List<Case> getCasesbyLawyer(int? idlawyer)
         {
-            throw new NotImplementedException();
+            List<Cases> caseslist = db.Cases.Where(x => (x.IdLawyer == idlawyer)).ToList();
+            var caseslist1 = new List<Case>();
+
+            foreach (Cases  _case in caseslist)
+            {
+                Case caseitem = new Case()
+                {
+                    Id = _case.Id,
+                    InitiationDate = _case.InitiationDate,
+                    IdLawyer = _case.IdLawyer,
+                    IdClient = _case.IdClient,
+                    Description = _case.Description,
+                    StateHistory = this.stateservice.getStatesbyCase(_case.Id),
+                };
+           
+                caseslist1.Add(caseitem);
+            }
+            return caseslist1;
         }
 
         public List<Case> getCasesbyClient(int? idclient)
         {
-            throw new NotImplementedException();
+            List<Cases> caseslist = db.Cases.Where(x => (x.IdClient == idclient)).ToList();
+            var caseslist1 = new List<Case>();
+
+            foreach (Cases _case in caseslist)
+            {
+                Case caseitem = new Case()
+                {
+                    Id = _case.Id,
+                    InitiationDate = _case.InitiationDate,
+                    IdLawyer = _case.IdLawyer,
+                    IdClient = _case.IdClient,
+                    Description = _case.Description,
+                };
+
+                this.stateservice = new StateService();
+                caseitem.StateHistory = this.stateservice.getStatesbyCase(_case.Id);
+
+                caseslist1.Add(caseitem);
+            }
+            return caseslist1;
         }
 
         public void saveCase(Case _case)

@@ -13,11 +13,16 @@ namespace kuasociados.Services
     {
         public KuasociadosEntities db { get; set; }
 
+        public LawyerService lawyerservice { get; set; }
+        public ClientService clientservice { get; set; }
 
         public UserService()
         {
+
             this.db = new KuasociadosEntities();
         }
+
+      
         
         public int getLastestPersonId()
         {
@@ -33,9 +38,23 @@ namespace kuasociados.Services
             }
         }
 
-        public void saveUser(RegisterModel user)
+        public Lawyer getLawyerbyUserId(int userid)
         {
+            Users user = db.Users.Where(x => (x.UserId == userid)).SingleOrDefault();
+            int personid = db.Persons.Where(x => (x.Id == user.IdPerson)).SingleOrDefault().Id;
+            int lawyerid = db.Lawyers.Where(x => (x.IdPerson == personid)).SingleOrDefault().Id;
+            Lawyer lawyer = this.lawyerservice.getLawyerById(lawyerid);
+            return lawyer;
+        }
 
+        public Client getClientbyUserId(int userid)
+        {
+            Users user = db.Users.Where(x => (x.UserId == userid)).SingleOrDefault();
+            int personid = db.Persons.Where(x => (x.Id == user.IdPerson)).SingleOrDefault().Id;
+            int clientid = db.Clients.Where(x => (x.IdPerson == personid)).SingleOrDefault().Id;
+            this.clientservice = new ClientService();
+            Client client = this.clientservice.getClientById(clientid);
+            return client;
         }
     }
 }

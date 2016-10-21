@@ -20,4 +20,9 @@
         var filterValue = $(this).attr('data-filter');
         $grid.isotope({ filter: filterValue });
     });
+
+    // owl carousel
+    $('.owl-carousel').owlCarousel({
+        items: 1,
+    });
 });

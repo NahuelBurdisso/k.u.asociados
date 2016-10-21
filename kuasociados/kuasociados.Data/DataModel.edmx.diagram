@@ -6,7 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="b239890de6274e1e85df0b905d665e9d" Name="Diagram1" ZoomLevel="64">
         <EntityTypeShape EntityType="KuasociadosModel.Cases" Width="1.5" PointX="5.25" PointY="6.25" />
-        <EntityTypeShape EntityType="KuasociadosModel.Clients" Width="1.5" PointX="3" PointY="10.375" />
+        <EntityTypeShape EntityType="KuasociadosModel.Clients" Width="1.5" PointX="3.375" PointY="9.75" />
         <EntityTypeShape EntityType="KuasociadosModel.Employees" Width="1.5" PointX="3" PointY="13" />
         <EntityTypeShape EntityType="KuasociadosModel.Lawyers" Width="1.5" PointX="3" PointY="2.5" />
         <EntityTypeShape EntityType="KuasociadosModel.News" Width="1.5" PointX="7.75" PointY="0.75" />
@@ -15,7 +15,7 @@
         <EntityTypeShape EntityType="KuasociadosModel.Specialties" Width="1.5" PointX="0.75" PointY="2" />
         <EntityTypeShape EntityType="KuasociadosModel.States" Width="1.5" PointX="7.5" PointY="6.25" />
         <EntityTypeShape EntityType="KuasociadosModel.sysdiagrams" Width="1.5" PointX="9.75" PointY="0.75" />
-        <EntityTypeShape EntityType="KuasociadosModel.Users" Width="1.5" PointX="3" PointY="5.75" />
+        <EntityTypeShape EntityType="KuasociadosModel.Users" Width="1.5" PointX="2.625" PointY="5.875" />
         <EntityTypeShape EntityType="KuasociadosModel.webpages_Membership" Width="1.5" PointX="9.75" PointY="3.75" />
         <EntityTypeShape EntityType="KuasociadosModel.webpages_OAuthMembership" Width="1.5" PointX="5.75" PointY="9.75" />
         <EntityTypeShape EntityType="KuasociadosModel.webpages_Roles" Width="1.5" PointX="0.75" PointY="10" />

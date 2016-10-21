@@ -26,11 +26,13 @@ namespace kuasociados.Controllers
             return View(news);
         }
 
+        [Authorize(Roles = "Secretary")]
         public ActionResult CreateNovedad()
         {
             return View();
         }
 
+        [Authorize(Roles = "Secretary")]
         [HttpPost]
         public ActionResult CreateNovedad(NewsModel news)
         {
@@ -63,7 +65,7 @@ namespace kuasociados.Controllers
             return View(news);
         }
 
-      
+        [Authorize(Roles = "Secretary")]
         public ActionResult DeleteConfirmed(int id)
         {
             this.service.deleteNews(id);

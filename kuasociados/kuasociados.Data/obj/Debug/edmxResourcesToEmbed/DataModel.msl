@@ -28,6 +28,7 @@
     <EntitySetMapping Name="Cases">
       <EntityTypeMapping TypeName="KuasociadosModel.Cases">
         <MappingFragment StoreEntitySet="Cases">
+          <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="InitiationDate" ColumnName="InitiationDate" />
           <ScalarProperty Name="IdLawyer" ColumnName="IdLawyer" />
           <ScalarProperty Name="IdClient" ColumnName="IdClient" />

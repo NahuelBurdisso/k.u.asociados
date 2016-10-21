@@ -8,51 +8,65 @@
     <section class="container">
 
         <div class="row mvxl">
-            
+
             <div class="col-md-offset-3 col-md-6">
-                <h3 class="">Logueate:</h3>
+                <h3 class="mvl">Logueate:</h3>
                 <section id="loginForm">
                     @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-red", role = "form" }))
                     {
                         @Html.AntiForgeryToken()
 
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
                         <div class="form-group">
-                            @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
-                            <div class="col-md-10">
-                                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+                            <div class="row">
+                                <div class="col-md-12">
+                                    @Html.LabelFor(m => m.UserName, new { @class = " control-label" })
+
+                                    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+                                </div>
                             </div>
+
+
                         </div>
                         <div class="form-group">
-                            @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-                            <div class="col-md-10">
-                                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-md-offset-2 col-md-10">
-                                <div class="checkbox">
-                                    @Html.CheckBoxFor(m => m.RememberMe)
-                                    @Html.LabelFor(m => m.RememberMe)
+                            <div class="row">
+                                <div class="col-md-12">
+                                    @Html.LabelFor(m => m.Password, new { @class = "control-label" })
+
+                                    @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="col-md-offset-2 col-md-10">
-                                <input type="submit" value="Ingresar" class="button  button--wapasha button--text-thick button--text-upper button--size-s" />
+                            <div class="col-md-12">
+                                <div class="checkbox">
+                                    @Html.CheckBoxFor(m => m.RememberMe, new { @class="text-left" })
+                                    @Html.LabelFor(m => m.RememberMe, new { @class = "text-left" })
+                                </div>
                             </div>
                         </div>
-                        <p>
-                                @Html.ActionLink("Register as a new user", "Register")
-                            </p>
-                 
-                           
+                        <div class="form-group">
+                            <div class="row text-center">
+                                <div class="col-md-12 ">
+                                    <input type="submit" value="Ingresar" class="button  button--wapasha button--text-thick button--text-upper button--size-s" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p>
+                                    No estas registrado aún? @Html.ActionLink("Regístrate", "Register")
+                                </p>
+                            </div>
+                        </div>
+
                     }
                 </section>
             </div>
-
         </div>
     </section>
 </section>

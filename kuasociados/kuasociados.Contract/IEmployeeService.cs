@@ -10,9 +10,9 @@ namespace kuasociados.Contract
     public interface IEmployeeService
     {
         int getLastestId();
-        Employee getEmployeeById(int id);
+        Employee getEmployeeById(int? id);
         List<Employee> getEmployees();
-        void saveEmployee(Employee employee);
+        void saveEmployee(People employee);
 
         void deleteEmployee(int id);
 

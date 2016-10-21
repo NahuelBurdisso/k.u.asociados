@@ -1,0 +1,66 @@
+﻿@model kuasociados.Contract.Models.Client
+
+@{
+    ViewBag.Title = "ClientCases";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="miscasos">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Mis Casos</h1>
+                <hr>
+            </div>
+        </div>
+        @if (Model.caseList.Count == 0)
+        {
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h4>No tiene casos en su historial.</h4>
+                </div>
+            </div>
+        }
+        else
+        {
+            foreach (var _case in Model.caseList)
+            {
+                <div class="well">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3>Descripción: @_case.Description</h3>
+                            <h4>Fecha de comienzo: @_case.InitiationDate</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+
+                                @foreach (var state in _case.StateHistory)
+                                {
+                                    <div class="col-md-3">
+                                        <div class="well">
+                                            <h2>Estado: @state.Description</h2>
+                                            <p>Fecha de iniciación: @state.InitiationDate</p>
+                                            @if (@state.Comment == null)
+                                            {
+                                                <p>No hay comentario del abogado.</p>
+                                            }
+                                            else
+                                            {
+                                                <p>Comentario: @state.Comment</p>
+                                            }
+
+                                        </div>
+                                    </div>
+                                }
+                   
+                        </div>
+                    </div>
+                </div>
+
+            }
+        }
+       
+    </div>
+</section>
+

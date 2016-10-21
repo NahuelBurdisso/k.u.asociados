@@ -6,6 +6,15 @@
         font-family: "Asap";
         font-size: 16px;
     }
+    .nav > li > p{
+        color: white;
+        padding-top: 17px;
+        font-family: "Asap";
+        font-size: 16px;
+    }
+    .user-name{
+        color:coral;
+    }
     .nav > li > a:hover, .nav > li > a:focus, .nav > li.active > a{
         background-color: rgba(0,0,0,0.6);
     }

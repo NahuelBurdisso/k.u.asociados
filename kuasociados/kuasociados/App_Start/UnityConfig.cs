@@ -46,6 +46,7 @@ namespace kuasociados.App_Start
             container.RegisterType<ILawyerService, LawyerService>();
             container.RegisterType<IClientService, ClientService>();
             container.RegisterType<ICaseService, CaseService>();
+            container.RegisterType<IEmployeeService, EmployeeService>();
         }
     }
 }

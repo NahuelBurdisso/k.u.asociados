@@ -11,6 +11,8 @@ namespace kuasociados.Contract
     public interface IUserService
     {
         int getLastestPersonId();
-        void saveUser(RegisterModel user);
+        Lawyer getLawyerbyUserId(int userid);
+
+        Client getClientbyUserId(int userid);
     }
 }

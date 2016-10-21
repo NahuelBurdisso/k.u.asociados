@@ -9,5 +9,8 @@ namespace kuasociados.Contract.Models
     public class Client: People
     {
         public virtual int IdPerson { get; set; }
+
+        [Display(Name = "Casos que tiene a cargo:")]
+        public virtual List<Case> caseList { get; set; }
     }
 }

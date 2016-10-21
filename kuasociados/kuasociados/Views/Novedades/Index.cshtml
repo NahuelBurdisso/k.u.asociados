@@ -5,7 +5,7 @@
 }
 
 @{
-    string i = "hola";
+    var isSecretary = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Secretary");
  }
 <section class="novedades">
     <div class="container">
@@ -48,7 +48,7 @@
                             </div>
                         </div>
                     </div>
-                    @if (i == "hola")
+                    @if (isSecretary)
                     {
 
                         <div class="row">
@@ -71,7 +71,7 @@
             </div>
             <div class="col-md-4">
                 <aside>
-                    @if(i == "hola")
+                    @if(isSecretary)
                     {
                         <div class="row">
                             <div class="col-md-12">

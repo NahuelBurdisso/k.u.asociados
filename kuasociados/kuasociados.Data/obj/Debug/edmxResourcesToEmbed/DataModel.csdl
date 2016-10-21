@@ -108,6 +108,7 @@
     <NavigationProperty Name="Clients" Relationship="KuasociadosModel.FK_Cases_Clients" FromRole="Cases" ToRole="Clients" />
     <NavigationProperty Name="Lawyers" Relationship="KuasociadosModel.FK_Cases_Lawyers" FromRole="Cases" ToRole="Lawyers" />
     <NavigationProperty Name="States" Relationship="KuasociadosModel.FK_States_Cases" FromRole="Cases" ToRole="States" />
+    <Property Name="Description" Type="String" MaxLength="1000" FixedLength="true" Unicode="true" />
   </EntityType>
   <EntityType Name="Clients">
     <Key>
@@ -174,7 +175,7 @@
     <Property Name="City" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
     <Property Name="Province" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
     <Property Name="Codep" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
-    <Property Name="ProfileImg" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="ProfileImg" Type="String" Nullable="false" MaxLength="500" FixedLength="true" Unicode="true" />
     <Property Name="Tel" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
     <NavigationProperty Name="Clients" Relationship="KuasociadosModel.FK_Clients_Persons" FromRole="Persons" ToRole="Clients" />
     <NavigationProperty Name="Employees" Relationship="KuasociadosModel.FK_Employees_Persons" FromRole="Persons" ToRole="Employees" />

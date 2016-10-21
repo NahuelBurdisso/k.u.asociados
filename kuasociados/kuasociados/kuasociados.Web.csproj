@@ -275,6 +275,7 @@
       <DependentUpon>main.css</DependentUpon>
     </Content>
     <None Include="Content\Scss\_contacto.scss" />
+    <None Include="Content\Scss\_cases.scss" />
     <Content Include="Content\Scss\_form.scss" />
     <None Include="Content\Scss\_reset.scss" />
     <None Include="Content\Scss\_marginpadding.scss" />
@@ -357,6 +358,7 @@
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.1.min.map" />
     <Content Include="Views\Novedades\Details.cshtml" />
+    <Content Include="Views\MyCases\ClientCases.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

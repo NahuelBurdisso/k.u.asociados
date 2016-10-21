@@ -17,8 +17,8 @@ namespace kuasociados.Controllers
     public class AccountController : Controller
     {
 
-        public IUserService userservice;
-        public IClientService clientservice;
+        public IUserService userservice { get; set; }
+        public IClientService clientservice { get; set; }
 
         public AccountController(IUserService _userservice,
                                  IClientService _clientservice)
@@ -43,26 +43,18 @@ namespace kuasociados.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginModel model, string returnUrl)
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid && WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe))
             {
-                WebSecurity.Login(model.UserName, model.Password, model.RememberMe);
-                return View(model);
-            }
-
-           
+                return RedirectToAction("Index", "Home");
+                
+            }      
             return View(model);
         }
-        
 
-        
-        // GET: /Account/Register
+
         [AllowAnonymous]
         public ActionResult Register()
         {
-            if (ModelState.IsValid)
-            {
-                
-            }
             return View();
         }
 
@@ -78,12 +70,12 @@ namespace kuasociados.Controllers
 
             if (ModelState.IsValid)
             { 
-                int newid = this.userservice.getLastestPersonId() + 1;
-
                 this.clientservice.saveClient(model);
-
+                int newid = this.userservice.getLastestPersonId();
                 WebSecurity.CreateUserAndAccount(model.UserName, model.Password,
                                                  propertyValues: new { IdPerson = newid, });
+
+
                 roles.AddUsersToRoles(new string[] { model.UserName }, new string[] { "Client" });
                 return RedirectToAction("Index", "Home");
                 
@@ -93,13 +85,11 @@ namespace kuasociados.Controllers
             return View(model);
         }
 
-      
-        // POST: /Account/LogOff
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+        
+        
         public ActionResult LogOff()
         {
-          
+            WebSecurity.Logout();
             return RedirectToAction("Index", "Home");
         }
 

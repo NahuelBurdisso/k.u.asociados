@@ -4,10 +4,11 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="IdClient" Type="int" Nullable="false" />
     <Property Name="IdLawyer" Type="int" Nullable="false" />
     <Property Name="InitiationDate" Type="date" Nullable="false" />
+    <Property Name="Description" Type="nchar" MaxLength="1000" />
   </EntityType>
   <EntityType Name="Clients">
     <Key>
@@ -66,7 +67,7 @@
     <Property Name="City" Type="nchar" MaxLength="50" Nullable="false" />
     <Property Name="Province" Type="nchar" MaxLength="50" Nullable="false" />
     <Property Name="Codep" Type="nchar" MaxLength="50" Nullable="false" />
-    <Property Name="ProfileImg" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="ProfileImg" Type="nchar" MaxLength="500" Nullable="false" />
     <Property Name="Tel" Type="nchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="Specialties">

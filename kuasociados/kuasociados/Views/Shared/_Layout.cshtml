@@ -4,18 +4,24 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
-   
+  
     @Styles.Render("~/Content/jquery.fullPage.css")
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/animate.css")
+    @Styles.Render("~/Content/owl-carousel.css")
     @Styles.Render("~/Content/Scss/main.min.css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/modernizr")
 
 
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+  
 </head>
 <body>
+    @{
+        var isLawyer = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Lawyer");
+        var isClient = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Client");
+    }
     <div class="navbar navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -31,12 +37,19 @@
                     <li>@Html.ActionLink("Novedades", "Index", "Novedades")</li>
                     <li>@Html.ActionLink("Contacto", "Index", "Contacto")</li>
                     <li>@Html.ActionLink("Nuestro Staff", "Index", "NuestroStaff")</li>
+                    @if (isLawyer)
+                    {
+                        <li>@Html.ActionLink("Mis Casos", "LawyerCases", "MyCases")</li>
+                    }
+                    @if (isClient)
+                    {
+                        <li>@Html.ActionLink("Mis Casos", "ClientCases", "MyCases")</li>
+                    }
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
-    <div class="">
         @RenderBody()
        
         <footer>
@@ -76,13 +89,14 @@
                 </div>
             </div>
         </footer>
-    </div>
+ 
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/Scripts/jquery.fullPage.min.js")
     @RenderSection("scripts", required: false)
     <script type="text/javascript" src="../../Scripts/classie.js"></script>
+    <script type="text/javascript" src="../../Scripts/owl-carousel.min.js"></script>
     <script src="https://unpkg.com/isotope-layout@3.0/dist/isotope.pkgd.min.js"></script>
     <script type="text/javascript" src="../../Scripts/main.js"></script>    
 </body>

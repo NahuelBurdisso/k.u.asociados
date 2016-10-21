@@ -50,9 +50,9 @@ namespace kuasociados.Services
                     InitiationDate = state.InitiationDate,
                     Comment = state.Comment,
                     Description = state.Description,
-                    
-                };
-                stateitem.Case.Id = state.IdCase;
+                    IdCase = state.IdCase,
+
+            };
                 state1.Add(stateitem);
             }
             return state1;
@@ -65,7 +65,7 @@ namespace kuasociados.Services
                 Id = state.Id,
                 InitiationDate = state.InitiationDate,
                 Comment = state.Comment,
-                IdCase = state.Case.Id,
+                IdCase = state.IdCase,
             };
 
             db.States.Add(state1);
