@@ -1,14 +1,14 @@
-﻿@model kuasociados.Contract.Models.Specialty
+﻿@model kuasociados.Contract.Models.State
 
 @{
-    ViewBag.Title = "CreateSpecialty";
+    ViewBag.Title = "AddComment";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<section class="specialty">
+<section class="edit">
     <div class="row mvxl">
         <div class="col-md-12 text-center">
-            <h3>Nueva especialdad</h3>
+            <h3>Agregar comentario:</h3>
         </div>
     </div>
     <div class="row">
@@ -16,16 +16,17 @@
             @using (Html.BeginForm())
             {
                 @Html.AntiForgeryToken()
-
+                @Html.HiddenFor(m => m.Id)
+                @Html.HiddenFor(m => m.IdCase)
+                @Html.HiddenFor(m => m.InitiationDate)
+                @Html.HiddenFor(m => m.Description)
                 <div class="form-red">
-                  
-                   
                     <div class="row">
-                        <div class="col-md-offset-4 col-md-4 text-center phm">
+                        <div class="col-md-offset-4 col-md-4  phm">
                             <div class="form-group">
-                                @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label" })
-                                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                                @Html.LabelFor(model => model.Comment, htmlAttributes: new { @class = "control-label" })
+                                @Html.TextAreaFor(model => model.Comment, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Comment, "", new { @class = "text-danger" })
                             </div>
                         </div>
                     </div>
@@ -33,17 +34,17 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <div class="col-md-offset-4 col-md-4 text-center">
-                                    <a href="@(Url.Action("Index" , "NuestroStaff"))">
+                                    <a href="@(Url.Action("LawyerCases" , "MyCases"))">
                                         <input type="button" value="Cancelar" class="mrs button button--wapasha button--text-thick button--text-upper button--size-s">
                                     </a>
-                                    <button class="button button--wapasha button--text-thick button--text-upper button--size-s" type="submit" value="Create">Crear</button>
+                                    <button class="button button--wapasha button--text-thick button--text-upper button--size-s" type="submit" value="Create">Añadir</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                }
-            </div>
+            }
         </div>
+    </div>
 </section>
 

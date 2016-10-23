@@ -23,6 +23,21 @@ namespace kuasociados.Services
             this.db = new KuasociadosEntities();
         }
 
+        public int getLastestId()
+        {
+            var result = db.Cases.ToList();
+            if (result != null)
+            {
+                int id = result.Last().Id;
+                return id;
+            }
+            else
+            {
+                return 0;
+            }
+
+        }
+
         public Case getCaseById(int? id)
         {
             var _case = db.Cases.Where(x => (x.Id == id)).SingleOrDefault();
@@ -42,7 +57,7 @@ namespace kuasociados.Services
         }
 
 
-        public void saveCases(Case _case)
+        public void saveCase(Case _case)
         {
             Cases case1 = new Cases()
             {
@@ -103,9 +118,5 @@ namespace kuasociados.Services
             return caseslist1;
         }
 
-        public void saveCase(Case _case)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

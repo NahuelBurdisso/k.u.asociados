@@ -20,7 +20,6 @@ namespace kuasociados.Contract.Models
         [Display(Name = "Fecha de iniciación:")]
         public virtual DateTime InitiationDate { get; set; }
 
-        [Required(ErrorMessage = "El campo no puede estar vacío.")]
         [Display(Name = "Comentario:")]
         public virtual string Comment { get; set; }
 

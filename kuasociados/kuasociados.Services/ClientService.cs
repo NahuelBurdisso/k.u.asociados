@@ -78,9 +78,9 @@ namespace kuasociados.Services
                     Province = client.Persons.Province,
                     Codep = client.Persons.Codep,
                     Tel = client.Persons.Tel,
-                    caseList = this.caseservice.getCasesbyClient(client.Id),
                 };
-
+                this.caseservice = new CaseService();
+                clientitem.caseList = this.caseservice.getCasesbyClient(client.Id);
                 clientsl.Add(clientitem);
             }
             return clientsl;

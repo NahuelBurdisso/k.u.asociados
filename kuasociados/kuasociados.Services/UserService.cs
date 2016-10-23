@@ -43,6 +43,7 @@ namespace kuasociados.Services
             Users user = db.Users.Where(x => (x.UserId == userid)).SingleOrDefault();
             int personid = db.Persons.Where(x => (x.Id == user.IdPerson)).SingleOrDefault().Id;
             int lawyerid = db.Lawyers.Where(x => (x.IdPerson == personid)).SingleOrDefault().Id;
+            this.lawyerservice = new LawyerService();
             Lawyer lawyer = this.lawyerservice.getLawyerById(lawyerid);
             return lawyer;
         }

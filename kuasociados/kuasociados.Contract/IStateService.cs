@@ -9,9 +9,12 @@ namespace kuasociados.Contract
 {
     public interface IStateService
     {
+        int getLastestId();
         State getStateById(int? id);
         List<State> getStatesbyCase(int? idcase);
         void saveState(State state);
+
+        void addComment(State state);
 
     }
 }

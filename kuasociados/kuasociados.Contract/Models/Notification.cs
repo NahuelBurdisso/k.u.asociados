@@ -11,9 +11,10 @@ namespace kuasociados.Contract.Models
         public virtual int Id { get; set; }
 
         [Required(ErrorMessage = "El campo no puede estar vacío.")]
-        [Display(Name = "Nombre:")]
+        [Display(Name = "Descripción:")]
         public virtual string Description { get; set; }
 
-        public virtual Lawyer Lawyer{ get; set; }
+        public virtual bool Active { get; set; }
+        public virtual int IdLawyer{ get; set; }
     }
 }

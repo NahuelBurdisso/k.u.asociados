@@ -1,4 +1,12 @@
 ﻿$(document).ready(function () {
+    // get ajax
+    //$.ajax({
+    //    method: GET,
+    //    type: "JSON",
+    //    url: "Shared/GetNotifications",
+    //});
+
+    // full page menu
     $('#fullpage').fullpage({
         menu: '#menu',
         scrollingSpeed: 1000,
@@ -22,7 +30,19 @@
     });
 
     // owl carousel
-    $('.owl-carousel').owlCarousel({
-        items: 1,
+    var carouselCount = 0;
+    $(".owl-carousel").each(function () {
+        $(this).attr("id", "owl-carousel" + carouselCount);
+        $('#owl-carousel' + carouselCount).owlCarousel({
+            items: 4,
+            // Responsive 
+            responsive: true,
+            //Pagination
+            pagination: false
+        });
+        carouselCount++;
     });
+
+    // init map
+
 });

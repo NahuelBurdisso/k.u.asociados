@@ -9,8 +9,8 @@ namespace kuasociados.Contract
 {
     public interface INotificationService
     {
-        Notification getNotificationById(int? id);
-        List<Notification> getNotificationsbyLawyer(int? idlawyer);
+        int getLatestId();
+        List<Notification> getActiveNotificationsbyLawyer(int? idlawyer);
         void saveNotification(Notification notification);
 
     }

@@ -20,6 +20,21 @@ namespace kuasociados.Services
             this.db = new KuasociadosEntities();
         }
 
+
+        public int getLatestId()
+        {
+            var result = db.Specialties.ToList().LastOrDefault();
+            if (result != null)
+            {
+                int id = result.Id;
+                return id;
+            }
+            else
+            {
+                return 0;
+            }
+
+        }
         public Specialty getSpecialtyById(int? id)
         {
             var specialty = db.Specialties.Where(x => (x.Id == id)).SingleOrDefault();
@@ -48,7 +63,7 @@ namespace kuasociados.Services
             return specialties1;
         }
 
-        public void saveSpecialties(Specialty specialty)
+        public void saveSpecialty(Specialty specialty)
         {
             Specialties specialty1 = new Specialties()
             {

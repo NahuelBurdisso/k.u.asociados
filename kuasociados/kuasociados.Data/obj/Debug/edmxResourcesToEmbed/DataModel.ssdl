@@ -37,13 +37,13 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
-    <Property Name="Title" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nchar" MaxLength="500" Nullable="false" />
     <Property Name="Body" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Subtitle" Type="nchar" MaxLength="20" Nullable="false" />
-    <Property Name="Img" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="Subtitle" Type="nchar" MaxLength="500" Nullable="false" />
+    <Property Name="Img" Type="nchar" MaxLength="500" Nullable="false" />
     <Property Name="PublishDate" Type="datetime" Nullable="false" />
-    <Property Name="Author" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="Author" Type="nchar" MaxLength="500" Nullable="false" />
   </EntityType>
   <EntityType Name="Notifications">
     <Key>
@@ -52,6 +52,7 @@
     <Property Name="Id" Type="int" Nullable="false" />
     <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
     <Property Name="IdLawyer" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Persons">
     <Key>

@@ -1,0 +1,65 @@
+﻿@model kuasociados.Contract.Models.State
+
+@{
+    ViewBag.Title = "CreateState";
+    int idCase = ViewBag.idCase;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="create pbl">
+    <div class="container">
+        <div class="row mvs">
+            <div class="col-md-offset-3 col-md-6">
+                <h1>Nuevo estado</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-offset-3 col-md-6">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-red">
+
+
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <input value="@idCase" name="idCase" class="hidden" />
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label" })
+
+                            @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.InitiationDate, htmlAttributes: new { @class = "control-label" })
+
+                            @Html.EditorFor(model => model.InitiationDate, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.InitiationDate, "", new { @class = "text-danger" })
+
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Comment, htmlAttributes: new { @class = "control-label" })
+
+                            @Html.TextAreaFor(model => model.Comment, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Comment, "", new { @class = "text-danger" })
+
+                        </div>
+                        
+
+                        <div class="form-group mtm">
+
+                            <a href="@(Url.Action("LawyerCases" , "MyCases"))">
+                                <input type="button" value="Cancelar" class="mrs button button--wapasha button--text-thick button--text-upper button--size-s">
+                            </a>
+                            <button class="button button--wapasha button--text-thick button--text-upper button--size-s" type="submit" value="Create">Crear</button>
+
+
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>

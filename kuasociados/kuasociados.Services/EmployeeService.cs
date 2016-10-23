@@ -85,7 +85,7 @@ namespace kuasociados.Services
             }
             return employees1;
         }
-        public void saveEmployee(People employee)
+        public void saveEmployee(RegisterModel employee)
         {
             Persons person1 = new Persons();
             person1.FirstName = employee.FirstName;

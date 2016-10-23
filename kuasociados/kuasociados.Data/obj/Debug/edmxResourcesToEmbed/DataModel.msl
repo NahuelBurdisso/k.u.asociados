@@ -78,6 +78,7 @@
     <EntitySetMapping Name="Notifications">
       <EntityTypeMapping TypeName="KuasociadosModel.Notifications">
         <MappingFragment StoreEntitySet="Notifications">
+          <ScalarProperty Name="Active" ColumnName="Active" />
           <ScalarProperty Name="IdLawyer" ColumnName="IdLawyer" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="Id" ColumnName="Id" />

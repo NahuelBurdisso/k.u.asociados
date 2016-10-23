@@ -145,12 +145,12 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" />
-    <Property Name="Title" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="500" FixedLength="true" Unicode="true" />
     <Property Name="Body" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Subtitle" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="true" />
-    <Property Name="Img" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="Subtitle" Type="String" Nullable="false" MaxLength="500" FixedLength="true" Unicode="true" />
+    <Property Name="Img" Type="String" Nullable="false" MaxLength="500" FixedLength="true" Unicode="true" />
     <Property Name="PublishDate" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="Author" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="Author" Type="String" Nullable="false" MaxLength="500" FixedLength="true" Unicode="true" />
   </EntityType>
   <EntityType Name="Notifications">
     <Key>
@@ -160,6 +160,7 @@
     <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="IdLawyer" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Lawyers" Relationship="KuasociadosModel.FK_Notifications_Lawyers" FromRole="Notifications" ToRole="Lawyers" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="Persons">
     <Key>

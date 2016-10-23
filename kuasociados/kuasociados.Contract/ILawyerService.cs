@@ -12,7 +12,7 @@ namespace kuasociados.Contract
         int getLastestId();
         Lawyer getLawyerById(int? id);
         List<Lawyer> getLawyers();
-        void saveLawyer(Lawyer lawyer);
+        void saveLawyer(RegisterModel lawyer);
 
         void deleteLawyer(int id);
 

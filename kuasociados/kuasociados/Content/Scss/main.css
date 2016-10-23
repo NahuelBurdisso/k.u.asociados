@@ -71,6 +71,20 @@
 .form-red input[type="checkbox"] {
   margin: 0; }
 
+.form-red select {
+  width: 100%;
+  background: #640000;
+  color: #FFFFFF;
+  border: 2px solid #FFFFFF;
+  border-radius: 0px;
+  font-size: 16px;
+  line-height: 22px;
+  padding: 3px;
+  box-shadow: 0px 0px 8px #DCDCDC;
+  -webkit-box-shadow: 0px 0px 8px #DCDCDC;
+  -moz-box-shadow: 0px 0px 8px #DCDCDC;
+  height: 28px; }
+
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -435,7 +449,7 @@ table {
     font-family: "Asap";
     font-size: 16px; }
   .navbar .user-name {
-    color: coral; }
+    color: pink; }
   .navbar .nav > li > a:hover, .navbar .nav > li > a:focus, .navbar .nav > li.active > a {
     background-color: rgba(0, 0, 0, 0.6); }
   .navbar .navbar-brand {
@@ -449,82 +463,78 @@ table {
       border-color: white;
       background-color: white; }
 
-.home .white {
-  color: white; }
-
-.home .section0-img {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  z-index: 3; }
-
-.home .section0-overlay {
-  background-color: #000000;
-  opacity: 0.4;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 10;
-  width: 100%;
-  height: 100%; }
-
-.home_quote {
-  position: absolute;
-  bottom: 25%;
-  left: 10%;
-  font-family: 'Bad Script', cursive;
-  font-size: 50px;
-  color: white;
-  animation-delay: 2s;
-  z-index: 11; }
-
-.home #section1 {
-  background-image: url("/Content/img/background-8.jpg");
-  background-size: cover;
-  background-repeat: no-repeat; }
-  .home #section1 p {
-    color: #494848;
-    font-family: "Courgette";
-    font-size: 60px;
-    padding: 10px 130px; }
-  .home #section1 p:hover {
-    transform: scale(1.1);
-    transition-duration: 5s; }
-  .home #section1 .function-icon {
-    height: 162px;
-    width: 160px;
-    margin-bottom: 20px; }
-
-.home #section2 {
-  background-image: url("/Content/img/background-4.jpg");
-  background-size: cover;
-  background-repeat: no-repeat; }
-  .home #section2 p {
-    color: #760000;
-    font-family: "Josefin Sans";
-    font-size: 49px;
-    padding: 10px 105px;
-    line-height: 55px;
-    border-radius: 20px; }
-  .home #section2 p:hover {
-    transform: skew(5deg, 5deg);
-    transition-duration: 5s; }
-
-.home #section3 {
-  background-image: url("/Content/img/background-10.jpg");
-  background-size: cover;
-  background-repeat: no-repeat; }
-  .home #section3 h3 {
+.home {
+  margin-top: -50px; }
+  .home .white {
+    color: white; }
+  .home .section0-img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 3; }
+  .home .section0-overlay {
+    background-color: #000000;
+    opacity: 0.4;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    height: 100%; }
+  .home_quote {
+    position: absolute;
+    bottom: 25%;
+    left: 10%;
+    font-family: 'Bad Script', cursive;
+    font-size: 50px;
     color: white;
-    font-family: "Courgette";
-    font-size: 55px; }
-  .home #section3 p {
-    color: white;
-    font-family: "Courgette";
-    font-size: 49px; }
-  .home #section3 p:hover {
-    transform: skew(5deg, 5deg);
-    transition-duration: 5s; }
+    animation-delay: 2s;
+    z-index: 11; }
+  .home #section1 {
+    background-image: url("/Content/img/background-8.jpg");
+    background-size: cover;
+    background-repeat: no-repeat; }
+    .home #section1 p {
+      color: #494848;
+      font-family: "Courgette";
+      font-size: 60px;
+      padding: 10px 130px; }
+    .home #section1 p:hover {
+      transform: scale(1.1);
+      transition-duration: 5s; }
+    .home #section1 .function-icon {
+      height: 162px;
+      width: 160px;
+      margin-bottom: 20px; }
+  .home #section2 {
+    background-image: url("/Content/img/background-4.jpg");
+    background-size: cover;
+    background-repeat: no-repeat; }
+    .home #section2 p {
+      color: #760000;
+      font-family: "Josefin Sans";
+      font-size: 49px;
+      padding: 10px 105px;
+      line-height: 55px;
+      border-radius: 20px; }
+    .home #section2 p:hover {
+      transform: skew(5deg, 5deg);
+      transition-duration: 5s; }
+  .home #section3 {
+    background-image: url("/Content/img/background-10.jpg");
+    background-size: cover;
+    background-repeat: no-repeat; }
+    .home #section3 h3 {
+      color: white;
+      font-family: "Courgette";
+      font-size: 55px; }
+    .home #section3 p {
+      color: white;
+      font-family: "Courgette";
+      font-size: 49px; }
+    .home #section3 p:hover {
+      transform: skew(5deg, 5deg);
+      transition-duration: 5s; }
 
 #fp-nav ul li a span {
   background: white; }
@@ -2130,12 +2140,33 @@ table {
     width: 100%;
     height: 100%; }
 
-.miscasos .item {
-  background-color: red; }
+.miscasos .well-state {
+  background-color: #640000;
+  height: 250px; }
+  .miscasos .well-state .no-comment {
+    font-family: 'Asap';
+    color: white; }
+  .miscasos .well-state h2 {
+    font-family: 'Asap';
+    color: white;
+    font-size: 20px;
+    font-weight: 700; }
+  .miscasos .well-state p {
+    font-family: 'Asap';
+    color: white; }
+    .miscasos .well-state p span {
+      font-family: 'Asap'; }
+  .miscasos .well-state .btn-primary {
+    color: white !important; }
+    .miscasos .well-state .btn-primary span {
+      color: white !important; }
+
+.miscasos .well-case {
+  border-color: #800000; }
 
 body {
-  padding-top: 50px;
-  min-height: 600px; }
+  min-height: 600px;
+  padding-top: 50px; }
 
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 

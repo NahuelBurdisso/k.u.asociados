@@ -82,10 +82,11 @@
                     <div class="col-md-12">
                         <div class="button-group filter-button-group">
                             <button data-filter="*" class="btn">Mostrar Todos</button>
-                            <button data-filter=".derecho-pen" class="btn">Derecho penal</button>
-                            <button data-filter=".domesticas" class="btn">Relaciones domésticas</button>
-                            <button data-filter=".derecho-emp-com" class="btn">Derecho empresarial y comercial</button>
-                            <button data-filter=".bienes"class="btn">Bienes raíces y Inmigración</button>
+                            @foreach (var specialty in ViewBag.SpecialtyList)
+                            {
+                                string specialtyclass = "." + @specialty.Id.ToString();
+                                <button data-filter="@specialtyclass" class="btn">@specialty.Description</button>
+                            }
                         </div>
                     </div>
                 </div>
@@ -94,10 +95,11 @@
                     <div class="grid-isotope">
                         @foreach (var lawyer in Model.lawyers)
                         {
-                            switch (@lawyer.Specialty.Id)
+                            foreach (var specialty in ViewBag.SpecialtyList)
                             {
-                                case 1:
-                                    <div class="grid-item col-md-6 derecho-pen">
+                                if (lawyer.IdSpecialty == specialty.Id)
+                                {
+                                    <div class="grid-item col-md-6 @specialty.Id.ToString()">
                                         <a href="">
                                             <div class="thumbnail text-center">
                                                 <img src="@lawyer.ProfileImg" alt="Abogado" class="img-responsive" />
@@ -105,37 +107,8 @@
                                             </div>
                                         </a>
                                     </div>
-                                    break;
-                                case 2:
-                                    <div class="col-md-6 grid-item domesticas">
-                                        <a href="">
-                                            <div class="thumbnail text-center">
-                                                <img src="@lawyer.ProfileImg" alt="Abogado" class="img-responsive" />
-                                                <p class="caption ">@lawyer.FirstName @lawyer.LastName</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    break;
-                                case 3:
-                                    <div class="col-md-6 grid-item derecho-emp-com">
-                                        <a href="">
-                                            <div class="thumbnail text-center">
-                                                <img src="@lawyer.ProfileImg" alt="Abogado" class="img-responsive" />
-                                                <p class="caption ">@lawyer.FirstName @lawyer.LastName</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    break;
-                                case 4:
-                                    <div class="col-md-6 grid-item bienes">
-                                        <a href="">
-                                            <div class="thumbnail text-center">
-                                                <img src="@lawyer.ProfileImg" alt="Abogado" class="img-responsive" />
-                                                <p class="caption ">@lawyer.FirstName @lawyer.LastName</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    break;
+                               
+                                }
                             }
                         }
                     </div>
