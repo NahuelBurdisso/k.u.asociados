@@ -86,5 +86,11 @@ namespace kuasociados.Contract.Models
 
         [Display(Name = "Imagen de Perfil:")]
         public virtual string ProfileImg { get; set; } //TODO analizar que tipo es
+
+        [Display(Name = "Puesto laboral:")]
+        public virtual string Job { get; set; }
+
+        [Display(Name = "Especialidad:")]
+        public virtual int IdSpecialty { get; set; }
     }
 }

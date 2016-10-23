@@ -68,4 +68,18 @@
     input[type="checkbox"]{
         margin: 0;
     }
+    select{
+        width: 100%;
+        background:#640000;
+        color:#FFFFFF;
+        border:2px solid #FFFFFF;
+        border-radius:0px ;
+        font-size:16px ;
+        line-height:22px ;
+        padding: 3px ;
+        box-shadow: 0px 0px 8px #DCDCDC; 
+        -webkit-box-shadow: 0px 0px 8px #DCDCDC; 
+        -moz-box-shadow: 0px 0px 8px #DCDCDC; 
+          height: 28px ;
+    }
 }

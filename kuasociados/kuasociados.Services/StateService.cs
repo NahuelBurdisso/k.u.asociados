@@ -21,6 +21,22 @@ namespace kuasociados.Services
             this.db = new KuasociadosEntities();
         }
 
+
+        public int getLastestId()
+        {
+            var result = db.States.ToList();
+            if (result != null)
+            {
+                int id = result.Last().Id;
+                return id;
+            }
+            else
+            {
+                return 0;
+            }
+
+        }
+
         public State getStateById(int? id)
         {
             var state = db.States.Where(x => (x.Id == id)).SingleOrDefault();
@@ -31,6 +47,7 @@ namespace kuasociados.Services
                 InitiationDate = state.InitiationDate,
                 Description = state.Description,
                 Comment = state.Comment,
+                IdCase = state.IdCase,
             };
 
             return state1;
@@ -65,11 +82,21 @@ namespace kuasociados.Services
                 Id = state.Id,
                 InitiationDate = state.InitiationDate,
                 Comment = state.Comment,
+                Description = state.Description,
                 IdCase = state.IdCase,
             };
 
             db.States.Add(state1);
             db.SaveChanges();
+        }
+        public void addComment(State state)
+        {
+            var result = db.States.SingleOrDefault(x => x.Id == state.Id);
+            if (result != null)
+            {
+                result.Comment = state.Comment;
+                db.SaveChanges();
+            }
         }
     }
 }

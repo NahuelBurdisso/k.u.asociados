@@ -12,7 +12,7 @@ namespace kuasociados.Contract
         int getLastestId();
         Employee getEmployeeById(int? id);
         List<Employee> getEmployees();
-        void saveEmployee(People employee);
+        void saveEmployee(RegisterModel employee);
 
         void deleteEmployee(int id);
 

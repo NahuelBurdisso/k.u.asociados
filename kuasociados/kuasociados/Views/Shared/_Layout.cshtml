@@ -40,10 +40,13 @@
                     @if (isLawyer)
                     {
                         <li>@Html.ActionLink("Mis Casos", "LawyerCases", "MyCases")</li>
+                        <li>@Html.ActionLink("Mi Perfil", "LawyerProfile", "Profile")</li>
                     }
                     @if (isClient)
                     {
                         <li>@Html.ActionLink("Mis Casos", "ClientCases", "MyCases")</li>
+                        <li>@Html.ActionLink("Mi Perfil", "ClientProfile", "Profile")</li>
+
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")
@@ -96,7 +99,6 @@
     @Scripts.Render("~/Scripts/jquery.fullPage.min.js")
     @RenderSection("scripts", required: false)
     <script type="text/javascript" src="../../Scripts/classie.js"></script>
-    <script type="text/javascript" src="../../Scripts/owl-carousel.min.js"></script>
     <script src="https://unpkg.com/isotope-layout@3.0/dist/isotope.pkgd.min.js"></script>
     <script type="text/javascript" src="../../Scripts/main.js"></script>    
 </body>

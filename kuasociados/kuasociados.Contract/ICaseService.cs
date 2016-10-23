@@ -10,6 +10,7 @@ namespace kuasociados.Contract
     public interface ICaseService
     {
         Case getCaseById(int? id);
+        int getLastestId();
         List<Case> getCasesbyLawyer(int? idlawyer);
         List<Case> getCasesbyClient(int? idclient);
         void saveCase(Case _case);

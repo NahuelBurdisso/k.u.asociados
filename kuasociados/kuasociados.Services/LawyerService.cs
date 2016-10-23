@@ -16,6 +16,8 @@ namespace kuasociados.Services
         public KuasociadosEntities db { get; set; }
         public CaseService caseservice { get; set; }
 
+        public UserService userservice { get; set; }
+
         public LawyerService()
         {
             this.db = new KuasociadosEntities();
@@ -40,11 +42,7 @@ namespace kuasociados.Services
         public Lawyer getLawyerById(int? id)
         {
             var lawyer = db.Lawyers.Where(x => (x.Id == id)).SingleOrDefault();
-            var specialty = new Specialty() {
-                Id = lawyer.Specialties.Id,
-                Description = lawyer.Specialties.Description,
-            };
-            
+
             Lawyer lawyer1 = new Lawyer()
             {
                 Id = lawyer.Id,
@@ -59,9 +57,10 @@ namespace kuasociados.Services
                 Province = lawyer.Persons.Province,
                 Codep = lawyer.Persons.Codep,
                 Tel = lawyer.Persons.Tel,
-                Specialty = specialty,
-                caseList = this.caseservice.getCasesbyLawyer(lawyer.Id),
+                IdSpecialty = lawyer.IdSpecialty,
             };
+            this.caseservice = new CaseService();
+            lawyer1.caseList = this.caseservice.getCasesbyClient(lawyer.Id);
             return lawyer1;
         }
         public List<Lawyer> getLawyers()
@@ -70,11 +69,6 @@ namespace kuasociados.Services
             var lawyerslist = db.Lawyers.ToList();
             foreach (Lawyers lawyer in lawyerslist)
             {
-                var specialty = new Specialty()
-                {
-                    Id = lawyer.Specialties.Id,
-                    Description = lawyer.Specialties.Description,
-                };
                 Lawyer lawyeritem = new Lawyer()
                 {
                     Id = lawyer.Id,
@@ -89,36 +83,62 @@ namespace kuasociados.Services
                     Province = lawyer.Persons.Province,
                     Codep = lawyer.Persons.Codep,
                     Tel = lawyer.Persons.Tel,
-                    Specialty = specialty,
-                    caseList = this.caseservice.getCasesbyLawyer(lawyer.Id),
-
+                    IdSpecialty = lawyer.IdSpecialty,
                 };
-
+                this.caseservice = new CaseService();
+                lawyeritem.caseList = this.caseservice.getCasesbyClient(lawyer.Id);
                 lawyers1.Add(lawyeritem);
             }
             return lawyers1;
         }
-        public void saveLawyer(Lawyer lawyer)
+        public void saveLawyer(RegisterModel lawyer)
         {
-            Lawyers lawyer1 = new Lawyers()
+            Persons person1 = new Persons();
+            person1.FirstName = lawyer.FirstName;
+            person1.LastName = lawyer.LastName;
+            person1.Email = lawyer.Email;
+            person1.Dni = lawyer.Dni;
+            person1.Gender = lawyer.Gender;
+            person1.BornDate = lawyer.BornDate;
+            person1.City = lawyer.City;
+            person1.ProfileImg = lawyer.ProfileImg;
+            person1.Province = lawyer.Province;
+            person1.Codep = lawyer.Codep;
+            person1.Tel = lawyer.Tel;
+
+            try
             {
-                Id = lawyer.Id,
-                IdSpecialty = lawyer.Specialty.Id,
-            };
-            lawyer1.Persons.LastName = lawyer.LastName;
-            lawyer1.Persons.Email = lawyer.Email;
-            lawyer1.Persons.Dni = lawyer.Dni;
-            lawyer1.Persons.Gender = lawyer.Gender;
-            lawyer1.Persons.BornDate = lawyer.BornDate;
-            lawyer1.Persons.City = lawyer.City;
-            lawyer1.Persons.ProfileImg = lawyer.ProfileImg;
-            lawyer1.Persons.Province = lawyer.Province;
-            lawyer1.Persons.Codep = lawyer.Codep;
-            lawyer1.Persons.Tel = lawyer.Tel;
-  
+                db.Persons.Add(person1);
+                db.SaveChanges();
+            }
+            catch (System.Data.Entity.Validation.DbEntityValidationException e)
+            {
+                foreach (var eve in e.EntityValidationErrors)
+                {
+                    Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+                        eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                    foreach (var ve in eve.ValidationErrors)
+                    {
+                        Console.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
+                            ve.PropertyName, ve.ErrorMessage);
+                    }
+                }
+                throw;
+            }
+
+
+
+            int newid = this.userservice.getLastestPersonId();
+
+
+            Lawyers lawyer1 = new Lawyers();
+            lawyer1.IdPerson = newid;
+            lawyer1.IdSpecialty = lawyer.IdSpecialty;
+
             db.Lawyers.Add(lawyer1);
             db.SaveChanges();
         }
+
 
         public void deleteLawyer(int id)
         {
@@ -133,7 +153,7 @@ namespace kuasociados.Services
             if (result != null)
             {
                 result.Id = lawyer.Id;
-                result.IdSpecialty = lawyer.Specialty.Id;
+                result.IdSpecialty = lawyer.IdSpecialty;
                 result.Persons.LastName = lawyer.LastName;
                 result.Persons.Email = lawyer.Email;
                 result.Persons.Dni = lawyer.Dni;

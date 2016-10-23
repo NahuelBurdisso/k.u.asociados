@@ -71,6 +71,20 @@
 .form-red input[type="checkbox"] {
   margin: 0; }
 
+.form-red select {
+  width: 100%;
+  background: #640000;
+  color: #FFFFFF;
+  border: 2px solid #FFFFFF;
+  border-radius: 0px;
+  font-size: 16px;
+  line-height: 22px;
+  padding: 3px;
+  box-shadow: 0px 0px 8px #DCDCDC;
+  -webkit-box-shadow: 0px 0px 8px #DCDCDC;
+  -moz-box-shadow: 0px 0px 8px #DCDCDC;
+  height: 28px; }
+
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -435,7 +449,7 @@ table {
     font-family: "Asap";
     font-size: 16px; }
   .navbar .user-name {
-    color: coral; }
+    color: pink; }
   .navbar .nav > li > a:hover, .navbar .nav > li > a:focus, .navbar .nav > li.active > a {
     background-color: rgba(0, 0, 0, 0.6); }
   .navbar .navbar-brand {
@@ -2130,8 +2144,29 @@ table {
     width: 100%;
     height: 100%; }
 
-.miscasos .item {
-  background-color: red; }
+.miscasos .well-state {
+  background-color: #640000;
+  height: 250px; }
+  .miscasos .well-state .no-comment {
+    font-family: 'Asap';
+    color: white; }
+  .miscasos .well-state h2 {
+    font-family: 'Asap';
+    color: white;
+    font-size: 20px;
+    font-weight: 700; }
+  .miscasos .well-state p {
+    font-family: 'Asap';
+    color: white; }
+    .miscasos .well-state p span {
+      font-family: 'Asap'; }
+  .miscasos .well-state .btn-primary {
+    color: white !important; }
+    .miscasos .well-state .btn-primary span {
+      color: white !important; }
+
+.miscasos .well-case {
+  border-color: #800000; }
 
 body {
   padding-top: 50px;

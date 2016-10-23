@@ -10,7 +10,7 @@ using WebMatrix.WebData;
 
 namespace kuasociados.Controllers
 {
-    public class MyCasesController : Controller
+    public class ProfileController : Controller
     {
         public IUserService userservice;
         public IClientService clientservice;
@@ -20,7 +20,7 @@ namespace kuasociados.Controllers
         public ICaseService caseservice;
 
 
-        public MyCasesController(IUserService _userservice,
+        public ProfileController(IUserService _userservice,
                                  IClientService _clientservice,
                                  ILawyerService _lawyerservice,
                                  INotificationService _notificationservice,
@@ -36,42 +36,17 @@ namespace kuasociados.Controllers
 
         // GET: MyCases
         [Authorize(Roles = "Client")]
-        public ActionResult ClientCases()
+        public ActionResult ClientProfile()
         {
             var userid = WebSecurity.CurrentUserId;
             var client = this.userservice.getClientbyUserId(userid);
             return View(client);
         }
 
-        [Authorize(Roles = "Client")]
-        public ActionResult SendNotification(int idLawyer)
-        {
-            ViewBag.idLawyer = idLawyer;
-            return View();
-        }
-
-        [Authorize(Roles = "Client")]
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult SendNotification(Notification notification)
-        {
-            int newid = this.notificationservice.getLatestId() + 1;
-            //../ Content / img / background - 10.jpg
-            notification.Id = newid;
-            notification.Active = true;
-            if (ModelState.IsValid)
-            {
-                this.notificationservice.saveNotification(notification);
-                return RedirectToAction("ClientCases");
-            }
-            else
-            {
-                return View(notification);
-            }
-        }
+        
         // GET: MyCases
         [Authorize(Roles = "Lawyer")]
-        public ActionResult LawyerCases()
+        public ActionResult LawyerProfile()
         {
             var userid = WebSecurity.CurrentUserId;
             var lawyer = this.userservice.getLawyerbyUserId(userid);
@@ -79,28 +54,27 @@ namespace kuasociados.Controllers
         }
 
         [Authorize(Roles = "Lawyer")]
- 
-        public ActionResult AddComment(int? idstate)
+        public ActionResult EditLawyerProfile(int? idlawyer)
         {
-            State state = this.stateservice.getStateById(idstate);
-            if (state == null)
+            Lawyer lawyer = this.lawyerservice.getLawyerById(idlawyer);
+            if (lawyer == null)
             {
                 return HttpNotFound();
             }
-            return View(state);
+            return View(lawyer);
         }
 
         [Authorize(Roles = "Lawyer")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult AddComment(State state)
+        public ActionResult EditLawyerProfile(Lawyer lawyer)
         {
             if (ModelState.IsValid)
             {
-                this.stateservice.addComment(state);
+                this.lawyerservice.editLawyer(lawyer);
                 return RedirectToAction("LawyerCases");
             }
-            return View(state);
+            return View(lawyer);
         }
 
         [Authorize(Roles = "Lawyer")]
@@ -136,7 +110,7 @@ namespace kuasociados.Controllers
             ViewBag.ClientList = this.clientservice.getClients();
             return View();
         }
-       
+
         [Authorize(Roles = "Lawyer")]
         [HttpPost]
         [ValidateAntiForgeryToken]

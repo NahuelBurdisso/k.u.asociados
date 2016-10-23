@@ -1,19 +1,25 @@
-﻿@model kuasociados.Contract.Models.Client
+﻿@model kuasociados.Contract.Models.Lawyer
 
 @{
-    ViewBag.Title = "ClientCases";
+    ViewBag.Title = "LawyerCases";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 
 <section class="miscasos">
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-6">
                 <h1>Mis Casos</h1>
-                <hr>
+                
+            </div>
+            <div class="col-md-6 ptm">
+                <div class="panel admin">
+                    <h3 class="mbxs">Acciones</h3>
+                    <a class="btn btn-success" href="@Url.Action("CreateCase", "MyCases", new {idLawyer = Model.Id})"><i class="fa fa-plus" aria-hidden="true"></i></a><span class="mlxs">Nuevo caso</span>
+                </div>
             </div>
         </div>
+        <hr>
         @if (Model.caseList.Count == 0)
             {
             <div class="row mvxl">
@@ -28,29 +34,23 @@
             {
                 <div class="well well-case">
                     <div class="row">
-                        <div class="col-md-9">
+                        <div class="col-md-12">
                             <h3>Descripción: @_case.Description</h3>
                             <h4>Fecha de comienzo: @_case.InitiationDate</h4>
                         </div>
-                        <div class="col-md-3">
-                            <div class="panel admin">
-                                <h3 class="mbxs">Acciones</h3>
-                                <a class="btn btn-success" href="@Url.Action("SendNotification", "MyCases", new {idLawyer = _case.IdLawyer})"><i class="fa fa-pencil" aria-hidden="true"></i></a><span class="mlxs" >Enviar notificacion al abogado a cargo</span>
-                            </div>
-                        </div>
                     </div>
                     <div class="row">
-                       
+
                         @foreach (var state in _case.StateHistory)
                         {
                             <div class="col-md-4">
                                 <div class="item">
                                     <div class="well well-state">
-                                        <h2>Estado: <span>@state.Description</span></h2>
-                                        <p>Fecha de iniciación:<span>@state.InitiationDate</span> </p>
+                                        <h2 class="mbm">Estado: <span>@state.Description</span></h2>
+                                        <p class="mbm">Fecha de iniciación:<span>@state.InitiationDate</span> </p>
                                         @if (@state.Comment == null)
                                         {
-                                            <p class="mvm text-center no-comment">No hay comentario del abogado.</p>
+                                           <a class="btn btn-primary" href="@Url.Action("AddComment", "MyCases", new {idState = state.Id, })"><i class="fa fa-pencil" aria-hidden="true"></i></a><span class="mlxs" style="color:white;">Añadir comentario</span>   
                                         }
                                         else
                                         {
@@ -60,13 +60,15 @@
                                     </div>
                                 </div>
                             </div>
-                        }
-                            
+                        }        
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <a class="btn btn-success" href="@Url.Action("CreateState", "MyCases", new {idCase = _case.Id, })"><i class="fa fa-plus" aria-hidden="true"></i></a><span class="mlxs">Nuevo Estado</span>
+                        </div>
+                    </div>     
                 </div>
-            </div>
             }
         }
     </div>
 </section>
-
-

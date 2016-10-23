@@ -52,6 +52,7 @@
     <Property Name="Id" Type="int" Nullable="false" />
     <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
     <Property Name="IdLawyer" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Persons">
     <Key>

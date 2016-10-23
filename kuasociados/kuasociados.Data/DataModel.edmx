@@ -57,6 +57,7 @@
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
           <Property Name="IdLawyer" Type="int" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Persons">
           <Key>
@@ -538,6 +539,7 @@
           <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="IdLawyer" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Lawyers" Relationship="KuasociadosModel.FK_Notifications_Lawyers" FromRole="Notifications" ToRole="Lawyers" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="Persons">
           <Key>
@@ -827,6 +829,7 @@
           <EntitySetMapping Name="Notifications">
             <EntityTypeMapping TypeName="KuasociadosModel.Notifications">
               <MappingFragment StoreEntitySet="Notifications">
+                <ScalarProperty Name="Active" ColumnName="Active" />
                 <ScalarProperty Name="IdLawyer" ColumnName="IdLawyer" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Id" ColumnName="Id" />

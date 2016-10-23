@@ -11,7 +11,7 @@ namespace kuasociados.Contract.Models
 
         [Required(ErrorMessage = "El campo no puede estar vacío.")]
         [Display(Name = "Especialidad:")]
-        public virtual Specialty Specialty { get; set; }
+        public virtual int IdSpecialty { get; set; }
 
 
 

@@ -242,6 +242,7 @@
     <Compile Include="Controllers\ContactoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\MyCasesController.cs" />
     <Compile Include="Controllers\NovedadesController.cs" />
     <Compile Include="Controllers\NuestroStaffController.cs" />
@@ -354,11 +355,15 @@
     <Content Include="Views\NuestroStaff\CreateLawyer.cshtml" />
     <Content Include="Views\NuestroStaff\CreateEmployee.cshtml" />
     <Content Include="Views\NuestroStaff\CreateSpecialty.cshtml" />
-    <Content Include="Views\MyCases\Index.cshtml" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.1.min.map" />
     <Content Include="Views\Novedades\Details.cshtml" />
     <Content Include="Views\MyCases\ClientCases.cshtml" />
+    <Content Include="Views\MyCases\SendNotification.cshtml" />
+    <Content Include="Views\MyCases\LawyerCases.cshtml" />
+    <Content Include="Views\MyCases\AddComment.cshtml" />
+    <Content Include="Views\MyCases\CreateState.cshtml" />
+    <Content Include="Views\MyCases\CreateCase.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,6 +1,36 @@
 ﻿.miscasos {
-    .item{
-         background-color: red;
+    .well-state{
+         background-color:rgb(100,0,0);
+         height: 250px;
+         .no-comment{
+             font-family: 'Asap';
+             color: white;
+         }
+         h2{
+             font-family: 'Asap';
+             color: white;
+             font-size: 20px;
+             font-weight:700;
+         }
+         p{
+             font-family: 'Asap';
+             color:white;
+             span{
+                 font-family: 'Asap';
+             }
+         }
+         .btn-primary{
+              color:white !important;
+             span{
+                 color:white !important;
+             }
+                
+         }
+
+    }
+    .well-case{
+        border-color: #800000;
+        
     }
 
 }
