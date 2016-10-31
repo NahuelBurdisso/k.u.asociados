@@ -7,3 +7,4 @@ C:\Users\Usuario1\Desktop\Facultad\Capacitacion\TrabajoPráctico\Webpage\k.u.aso
 C:\Users\Usuario1\Desktop\Facultad\Capacitacion\TrabajoPráctico\Webpage\k.u.asociados\kuasociados\kuasociados.Data\bin\x86\Debug\EntityFramework.SqlServer.xml
 C:\Users\Usuario1\Desktop\Facultad\Capacitacion\TrabajoPráctico\Webpage\k.u.asociados\kuasociados\kuasociados.Data\obj\x86\Debug\kuasociados.Data.dll
 C:\Users\Usuario1\Desktop\Facultad\Capacitacion\TrabajoPráctico\Webpage\k.u.asociados\kuasociados\kuasociados.Data\obj\x86\Debug\kuasociados.Data.pdb
+C:\Users\Usuario1\Desktop\Facultad\Capacitacion\TrabajoPráctico\Webpage\k.u.asociados\kuasociados\kuasociados.Data\obj\x86\Debug\kuasociados.Data.csprojResolveAssemblyReference.cache

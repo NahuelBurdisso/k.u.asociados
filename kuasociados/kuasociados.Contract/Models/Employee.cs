@@ -12,6 +12,6 @@ namespace kuasociados.Contract.Models
         [Display(Name = "Puesto laboral:")]
         public virtual string  Job { get; set; }
 
-        public virtual int IdPerson { get; set; }
+        public virtual int? IdPerson { get; set; }
     }
 }

@@ -8,7 +8,7 @@
     <Property Name="IdClient" Type="int" Nullable="false" />
     <Property Name="IdLawyer" Type="int" Nullable="false" />
     <Property Name="InitiationDate" Type="date" Nullable="false" />
-    <Property Name="Description" Type="nchar" MaxLength="1000" />
+    <Property Name="Description" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="Clients">
     <Key>
@@ -22,7 +22,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Job" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Job" Type="nvarchar" MaxLength="1000" Nullable="false" />
     <Property Name="IdPerson" Type="int" />
   </EntityType>
   <EntityType Name="Lawyers">
@@ -38,19 +38,19 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Title" Type="nchar" MaxLength="500" Nullable="false" />
+    <Property Name="Title" Type="varchar(max)" Nullable="false" />
     <Property Name="Body" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Subtitle" Type="nchar" MaxLength="500" Nullable="false" />
-    <Property Name="Img" Type="nchar" MaxLength="500" Nullable="false" />
+    <Property Name="Subtitle" Type="varchar(max)" Nullable="false" />
+    <Property Name="Img" Type="varchar(max)" Nullable="false" />
     <Property Name="PublishDate" Type="datetime" Nullable="false" />
-    <Property Name="Author" Type="nchar" MaxLength="500" Nullable="false" />
+    <Property Name="Author" Type="varchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="Notifications">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" Nullable="false" />
-    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="varchar(max)" Nullable="false" />
     <Property Name="IdLawyer" Type="int" Nullable="false" />
     <Property Name="Active" Type="bit" Nullable="false" />
   </EntityType>
@@ -59,24 +59,24 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="FirstName" Type="nchar" MaxLength="50" Nullable="false" />
-    <Property Name="LastName" Type="nchar" MaxLength="50" Nullable="false" />
-    <Property Name="Email" Type="nchar" MaxLength="50" Nullable="false" />
-    <Property Name="Dni" Type="nchar" MaxLength="50" Nullable="false" />
-    <Property Name="Gender" Type="nchar" MaxLength="1" Nullable="false" />
+    <Property Name="FirstName" Type="varchar(max)" Nullable="false" />
+    <Property Name="LastName" Type="varchar(max)" Nullable="false" />
+    <Property Name="Email" Type="varchar(max)" Nullable="false" />
+    <Property Name="Dni" Type="varchar(max)" Nullable="false" />
+    <Property Name="Gender" Type="char" MaxLength="1" Nullable="false" />
     <Property Name="BornDate" Type="date" Nullable="false" />
-    <Property Name="City" Type="nchar" MaxLength="50" Nullable="false" />
-    <Property Name="Province" Type="nchar" MaxLength="50" Nullable="false" />
-    <Property Name="Codep" Type="nchar" MaxLength="50" Nullable="false" />
-    <Property Name="ProfileImg" Type="nchar" MaxLength="500" Nullable="false" />
-    <Property Name="Tel" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="City" Type="varchar(max)" Nullable="false" />
+    <Property Name="Province" Type="varchar(max)" Nullable="false" />
+    <Property Name="Codep" Type="varchar(max)" Nullable="false" />
+    <Property Name="ProfileImg" Type="varchar(max)" Nullable="false" />
+    <Property Name="Tel" Type="varchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="Specialties">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" Nullable="false" />
-    <Property Name="Description" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="varchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="States">
     <Key>

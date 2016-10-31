@@ -43,6 +43,7 @@ namespace kuasociados.Services
             Employee employee1 = new Employee()
             {
                 Id = employee.Id,
+                IdPerson = employee.IdPerson,
                 FirstName = employee.Persons.FirstName,
                 LastName = employee.Persons.LastName,
                 Email = employee.Persons.Email,

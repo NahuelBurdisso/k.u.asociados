@@ -19,6 +19,7 @@ namespace kuasociados.Controllers
         public IStateService stateservice;
         public ICaseService caseservice;
         public IEmployeeService employeeservice;
+        public ISpecialtyService specialtyservice;
 
 
         public ProfileController(IUserService _userservice,
@@ -27,7 +28,8 @@ namespace kuasociados.Controllers
                                  INotificationService _notificationservice,
                                  IStateService _stateservice,
                                  IEmployeeService _employeeservice,
-                                 ICaseService _caseservice) {
+                                 ISpecialtyService _specialtyservice,
+                                ICaseService _caseservice) {
             this.userservice = _userservice;
             this.clientservice = _clientservice;
             this.lawyerservice = _lawyerservice;
@@ -35,6 +37,7 @@ namespace kuasociados.Controllers
             this.stateservice = _stateservice;
             this.caseservice = _caseservice;
             this.employeeservice = _employeeservice;
+            this.specialtyservice = _specialtyservice;
         }
 
         // GET: MyCases
@@ -82,6 +85,7 @@ namespace kuasociados.Controllers
         public ActionResult EditLawyerProfile(int? idlawyer)
         {
             Lawyer lawyer = this.lawyerservice.getLawyerById(idlawyer);
+            ViewBag.SpecialtyList = this.specialtyservice.getSpecialties();
             if (lawyer == null)
             {
                 return HttpNotFound();
@@ -99,6 +103,7 @@ namespace kuasociados.Controllers
                 this.lawyerservice.editLawyer(lawyer);
                 return RedirectToAction("LawyerProfile");
             }
+            ViewBag.SpecialtyList = this.specialtyservice.getSpecialties();
             return View(lawyer);
         }
 
@@ -114,7 +119,7 @@ namespace kuasociados.Controllers
             return View(employee);
         }
 
-        [Authorize(Roles = "Lawyer")]
+        [Authorize(Roles = "Employee")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult EditEmployeeProfile(Employee employee)

@@ -368,6 +368,8 @@
     <Content Include="Views\MyCases\CreateCase.cshtml" />
     <Content Include="Views\Profile\EmployeeProfile.cshtml" />
     <Content Include="Views\Profile\LawyerProfile.cshtml" />
+    <Content Include="Views\Profile\EditLawyerProfile.cshtml" />
+    <Content Include="Views\Profile\EditEmployeeProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

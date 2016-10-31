@@ -46,6 +46,7 @@ namespace kuasociados.Services
             Lawyer lawyer1 = new Lawyer()
             {
                 Id = lawyer.Id,
+                IdPerson = lawyer.IdPerson,
                 FirstName = lawyer.Persons.FirstName,
                 LastName = lawyer.Persons.LastName,
                 Email = lawyer.Persons.Email,
@@ -72,6 +73,7 @@ namespace kuasociados.Services
                 Lawyer lawyeritem = new Lawyer()
                 {
                     Id = lawyer.Id,
+                    IdPerson = lawyer.IdPerson,
                     FirstName = lawyer.Persons.FirstName,
                     LastName = lawyer.Persons.LastName,
                     Email = lawyer.Persons.Email,
@@ -126,10 +128,7 @@ namespace kuasociados.Services
                 throw;
             }
 
-
-
             int newid = this.userservice.getLastestPersonId();
-
 
             Lawyers lawyer1 = new Lawyers();
             lawyer1.IdPerson = newid;
@@ -152,7 +151,6 @@ namespace kuasociados.Services
             var result = db.Lawyers.SingleOrDefault(x => x.Id == lawyer.Id);
             if (result != null)
             {
-                result.Id = lawyer.Id;
                 result.IdSpecialty = lawyer.IdSpecialty;
                 result.Persons.LastName = lawyer.LastName;
                 result.Persons.Email = lawyer.Email;
@@ -164,7 +162,15 @@ namespace kuasociados.Services
                 result.Persons.Province = lawyer.Province;
                 result.Persons.Codep = lawyer.Codep;
                 result.Persons.Tel = lawyer.Tel;
-                db.SaveChanges();
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    var exception = ex;
+                }
+               
             }
         }
 
