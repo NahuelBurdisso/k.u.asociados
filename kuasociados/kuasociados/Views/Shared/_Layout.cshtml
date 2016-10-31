@@ -21,6 +21,7 @@
     @{
         var isLawyer = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Lawyer");
         var isClient = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Client");
+        var isEmployee = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Employee");
     }
     <div class="navbar navbar-fixed-top">
         <div class="container">
@@ -41,13 +42,15 @@
                     {
                         <li>@Html.ActionLink("Mis Casos", "LawyerCases", "MyCases")</li>
                         <li>@Html.ActionLink("Mi Perfil", "LawyerProfile", "Profile")</li>
-                        <li><p><i class="fa fa-bell"><span class="badge">42</span></i></p></li>
+                        <li><a href=""><i class="fa fa-bell"><span class="badge">42</span></i></a></li>
+                    }
+                    @if (isEmployee)
+                    {
+                        <li>@Html.ActionLink("Mi Perfil", "EmployeeProfile", "Profile")</li>
                     }
                     @if (isClient)
                     {
                         <li>@Html.ActionLink("Mis Casos", "ClientCases", "MyCases")</li>
-                        <li>@Html.ActionLink("Mi Perfil", "ClientProfile", "Profile")</li>
-
                     }
                 </ul>
                  @Html.Partial("_LoginPartial")

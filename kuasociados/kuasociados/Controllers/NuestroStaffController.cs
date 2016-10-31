@@ -29,7 +29,7 @@ namespace kuasociados.Controllers
         }
 
         // GET: NuestroStaff
-        [Authorize(Roles = "Admin")]
+
         public ActionResult Index()
         {
             var employeeslist = this.employeeservice.getEmployees();

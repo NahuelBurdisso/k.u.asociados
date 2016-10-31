@@ -18,6 +18,7 @@ namespace kuasociados.Controllers
         public INotificationService notificationservice;
         public IStateService stateservice;
         public ICaseService caseservice;
+        public IEmployeeService employeeservice;
 
 
         public ProfileController(IUserService _userservice,
@@ -25,6 +26,7 @@ namespace kuasociados.Controllers
                                  ILawyerService _lawyerservice,
                                  INotificationService _notificationservice,
                                  IStateService _stateservice,
+                                 IEmployeeService _employeeservice,
                                  ICaseService _caseservice) {
             this.userservice = _userservice;
             this.clientservice = _clientservice;
@@ -32,25 +34,48 @@ namespace kuasociados.Controllers
             this.notificationservice = _notificationservice;
             this.stateservice = _stateservice;
             this.caseservice = _caseservice;
+            this.employeeservice = _employeeservice;
         }
 
         // GET: MyCases
-        [Authorize(Roles = "Client")]
-        public ActionResult ClientProfile()
+
+        public ActionResult EmployeeProfile(int? idemployee)
         {
-            var userid = WebSecurity.CurrentUserId;
-            var client = this.userservice.getClientbyUserId(userid);
-            return View(client);
+            int userid = WebSecurity.CurrentUserId;
+            Employee employeeforauth = this.userservice.getEmployeebyUserId(userid);
+            ViewBag.isauthenticated = employeeforauth.Id;
+            if (idemployee != null)
+            {              
+                var employee = this.employeeservice.getEmployeeById(idemployee);
+                return View(employee);
+            }
+            else
+            {
+
+                Employee employee = this.userservice.getEmployeebyUserId(userid);
+                return View(employee);
+            }
         }
 
         
         // GET: MyCases
-        [Authorize(Roles = "Lawyer")]
-        public ActionResult LawyerProfile()
+        public ActionResult LawyerProfile(int? idlawyer)
         {
-            var userid = WebSecurity.CurrentUserId;
-            var lawyer = this.userservice.getLawyerbyUserId(userid);
-            return View(lawyer);
+            int userid = WebSecurity.CurrentUserId;
+            Lawyer lawyerforauth = this.userservice.getLawyerbyUserId(userid);
+            ViewBag.isauthenticated = lawyerforauth.Id;
+
+            if (idlawyer != null)
+            {
+                var lawyer = this.lawyerservice.getLawyerById(idlawyer);
+                return View(lawyer);
+            }
+            else
+            {
+                Lawyer lawyer = this.userservice.getLawyerbyUserId(userid);
+                return View(lawyer); 
+            }
+            
         }
 
         [Authorize(Roles = "Lawyer")]
@@ -72,62 +97,34 @@ namespace kuasociados.Controllers
             if (ModelState.IsValid)
             {
                 this.lawyerservice.editLawyer(lawyer);
-                return RedirectToAction("LawyerCases");
+                return RedirectToAction("LawyerProfile");
             }
             return View(lawyer);
         }
 
-        [Authorize(Roles = "Lawyer")]
-        public ActionResult CreateState(int IdCase)
+
+        [Authorize(Roles = "Employee")]
+        public ActionResult EditEmployeeProfile(int? idemployee)
         {
-            ViewBag.IdCase = IdCase;
-            return View();
+            Employee employee = this.employeeservice.getEmployeeById(idemployee);
+            if (employee == null)
+            {
+                return HttpNotFound();
+            }
+            return View(employee);
         }
 
         [Authorize(Roles = "Lawyer")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CreateState(State state)
+        public ActionResult EditEmployeeProfile(Employee employee)
         {
-            int newid = this.stateservice.getLastestId() + 1;
-
-            state.Id = newid;
             if (ModelState.IsValid)
             {
-                this.stateservice.saveState(state);
-                return RedirectToAction("LawyerCases");
+                this.employeeservice.editEmployee(employee);
+                return RedirectToAction("EmployeeProfile");
             }
-            else
-            {
-                return View(state);
-            }
-        }
-
-        [Authorize(Roles = "Lawyer")]
-        public ActionResult CreateCase(int IdLawyer)
-        {
-            ViewBag.IdLawyer = IdLawyer;
-            ViewBag.ClientList = this.clientservice.getClients();
-            return View();
-        }
-
-        [Authorize(Roles = "Lawyer")]
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult CreateCase(Case _case)
-        {
-            int newid = this.caseservice.getLastestId() + 1;
-
-            _case.Id = newid;
-            if (ModelState.IsValid)
-            {
-                this.caseservice.saveCase(_case);
-                return RedirectToAction("LawyerCases");
-            }
-            else
-            {
-                return View(_case);
-            }
+            return View(employee);
         }
 
     }

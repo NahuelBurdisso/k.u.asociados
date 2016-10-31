@@ -14,5 +14,6 @@ namespace kuasociados.Contract
         Lawyer getLawyerbyUserId(int userid);
 
         Client getClientbyUserId(int userid);
+        Employee getEmployeebyUserId(int userid);
     }
 }

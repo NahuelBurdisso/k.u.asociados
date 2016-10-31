@@ -1,0 +1,59 @@
+﻿@model kuasociados.Contract.Models.Employee
+
+@{
+    
+    ViewBag.Title = "EmployeeProfile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="profile">
+    <div class="container pvxl">
+        @if(ViewBag.isauthenticated == Model.Id) { 
+            <div class="row mbm">
+                <div class="col-md-6 col-md-offset-3 text-center">
+                    <a class="btn btn-primary" href="@Url.Action("EditEmployeeProfile", "Profile", new { idemployee = Model.Id })"><i class="fa fa-pencil" aria-hidden="true"></i></a><span class="mlxs">Editar mi perfil</span>
+                </div>
+            </div>
+        }
+    
+        <div class="row mbm">
+            <div class="col-md-6 col-md-offset-3 text-center">
+                <img src="@Model.ProfileImg" alt="kuasociados-Profilepic" class="img-responsive profile-img" />
+            </div>
+        </div>
+        <div class="row mbm">
+            <div class="col-md-6 col-md-offset-3 text-center">
+                <h3 class="mbm">@Model.FirstName @Model.LastName</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 text-left">
+                <p>
+                    @Html.LabelFor(m => m.Email)
+                   <span>@Html.DisplayFor(m => m.Email)</span> 
+                </p>
+                <p>
+                    @Html.LabelFor(m => m.Tel)
+                    <span>@Html.DisplayFor(m => m.Tel)</span>
+                </p>
+                <p>
+                    @Html.LabelFor(m => m.BornDate)
+                    <span>@Html.DisplayFor(m => m.BornDate)</span>
+                </p>
+                <p>
+                    @Html.LabelFor(m => m.City)
+                    <span>@Html.DisplayFor(m => m.City)</span>
+                </p>
+                <p>
+                    @Html.LabelFor(m => m.Province)
+                    <span>@Html.DisplayFor(m => m.Province)</span>
+                </p>
+                <p>
+                    @Html.LabelFor(m => m.Dni)
+                    <span>@Html.DisplayFor(m => m.Dni)</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+

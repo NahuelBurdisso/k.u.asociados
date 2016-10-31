@@ -29,20 +29,6 @@
         $grid.isotope({ filter: filterValue });
     });
 
-    // owl carousel
-    var carouselCount = 0;
-    $(".owl-carousel").each(function () {
-        $(this).attr("id", "owl-carousel" + carouselCount);
-        $('#owl-carousel' + carouselCount).owlCarousel({
-            items: 4,
-            // Responsive 
-            responsive: true,
-            //Pagination
-            pagination: false
-        });
-        carouselCount++;
-    });
-
     // init map
 
 });

@@ -1,0 +1,9 @@
+C:\Users\Usuario1\Desktop\Facultad\Capacitacion\TrabajoPráctico\Webpage\k.u.asociados\kuasociados\kuasociados.Data\bin\x64\Debug\kuasociados.Data.dll.config
+C:\Users\Usuario1\Desktop\Facultad\Capacitacion\TrabajoPráctico\Webpage\k.u.asociados\kuasociados\kuasociados.Data\bin\x64\Debug\kuasociados.Data.dll
+C:\Users\Usuario1\Desktop\Facultad\Capacitacion\TrabajoPráctico\Webpage\k.u.asociados\kuasociados\kuasociados.Data\bin\x64\Debug\kuasociados.Data.pdb
+C:\Users\Usuario1\Desktop\Facultad\Capacitacion\TrabajoPráctico\Webpage\k.u.asociados\kuasociados\kuasociados.Data\bin\x64\Debug\EntityFramework.dll
+C:\Users\Usuario1\Desktop\Facultad\Capacitacion\TrabajoPráctico\Webpage\k.u.asociados\kuasociados\kuasociados.Data\bin\x64\Debug\EntityFramework.SqlServer.dll
+C:\Users\Usuario1\Desktop\Facultad\Capacitacion\TrabajoPráctico\Webpage\k.u.asociados\kuasociados\kuasociados.Data\bin\x64\Debug\EntityFramework.xml
+C:\Users\Usuario1\Desktop\Facultad\Capacitacion\TrabajoPráctico\Webpage\k.u.asociados\kuasociados\kuasociados.Data\bin\x64\Debug\EntityFramework.SqlServer.xml
+C:\Users\Usuario1\Desktop\Facultad\Capacitacion\TrabajoPráctico\Webpage\k.u.asociados\kuasociados\kuasociados.Data\obj\x64\Debug\kuasociados.Data.dll
+C:\Users\Usuario1\Desktop\Facultad\Capacitacion\TrabajoPráctico\Webpage\k.u.asociados\kuasociados\kuasociados.Data\obj\x64\Debug\kuasociados.Data.pdb

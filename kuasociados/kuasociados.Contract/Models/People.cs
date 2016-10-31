@@ -42,7 +42,7 @@ namespace kuasociados.Contract.Models
 
         [Required(ErrorMessage = "El campo no puede estar vacío")]
         [DataType(DataType.Date)]
-        [Display(Name = "Ingrese una fecha de nacimiento:")]
+        [Display(Name = "Fecha de nacimiento:")]
         public DateTime BornDate { get; set; }
 
         [Required(ErrorMessage = "El campo no puede estar vacío.")]

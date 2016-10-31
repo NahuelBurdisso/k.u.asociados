@@ -15,6 +15,7 @@ namespace kuasociados.Services
 
         public LawyerService lawyerservice { get; set; }
         public ClientService clientservice { get; set; }
+        public EmployeeService employeeservice { get; set; }
 
         public UserService()
         {
@@ -56,6 +57,16 @@ namespace kuasociados.Services
             this.clientservice = new ClientService();
             Client client = this.clientservice.getClientById(clientid);
             return client;
+        }
+
+        public Employee getEmployeebyUserId(int userid)
+        {
+            Users user = db.Users.Where(x => (x.UserId == userid)).SingleOrDefault();
+            int personid = db.Persons.Where(x => (x.Id == user.IdPerson)).SingleOrDefault().Id;
+            int employeeid = db.Employees.Where(x => (x.IdPerson == personid)).SingleOrDefault().Id;
+            this.employeeservice = new EmployeeService();
+            Employee employee = this.employeeservice.getEmployeeById(employeeid);
+            return employee;
         }
     }
 }
