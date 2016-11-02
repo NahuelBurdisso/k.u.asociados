@@ -1,11 +1,4 @@
-﻿$(document).ready(function () {
-    // get ajax
-    //$.ajax({
-    //    method: GET,
-    //    type: "JSON",
-    //    url: "Shared/GetNotifications",
-    //});
-
+﻿$(document).ready(function () { 
     // full page menu
     $('#fullpage').fullpage({
         menu: '#menu',

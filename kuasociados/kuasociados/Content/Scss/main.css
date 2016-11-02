@@ -2194,6 +2194,12 @@ table {
     font-family: "Asap";
     font-size: 16px; }
 
+.notificaciones label {
+  font-family: "Kalam"; }
+  .notificaciones label:hover {
+    color: red;
+    transform: translateX(1.4); }
+
 body {
   min-height: 600px;
   padding-top: 50px; }
@@ -2226,6 +2232,14 @@ h4 {
   color: #37474f;
   font-family: "Josefin Sans";
   font-size: 28px; }
+
+.badge {
+  position: absolute;
+  top: 12%;
+  right: 0%;
+  background-color: #500000;
+  color: white;
+  font-family: "Josefin Sans"; }
 
 .block {
   display: block; }

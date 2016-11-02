@@ -1,0 +1,10 @@
+﻿.notificaciones
+{
+    label{
+         font-family: "Kalam";
+        &:hover{
+        color: red;
+        transform: translateX(1.4);
+        }
+    }
+}

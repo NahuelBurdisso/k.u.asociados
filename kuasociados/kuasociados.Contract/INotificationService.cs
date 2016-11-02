@@ -11,6 +11,8 @@ namespace kuasociados.Contract
     {
         int getLatestId();
         List<Notification> getActiveNotificationsbyLawyer(int? idlawyer);
+
+        void deactivateNotification(int idnotification);
         void saveNotification(Notification notification);
 
     }

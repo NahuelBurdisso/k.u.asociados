@@ -242,6 +242,7 @@
     <Compile Include="Controllers\ContactoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\NotificationsController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\MyCasesController.cs" />
     <Compile Include="Controllers\NovedadesController.cs" />
@@ -279,6 +280,7 @@
     <None Include="Content\Scss\_contacto.scss" />
     <None Include="Content\Scss\_cases.scss" />
     <Content Include="Content\Scss\_form.scss" />
+    <Content Include="Content\Scss\_notifications.scss" />
     <None Include="Content\Scss\_reset.scss" />
     <None Include="Content\Scss\_marginpadding.scss" />
     <None Include="Content\Scss\_navbar.scss" />
@@ -370,6 +372,7 @@
     <Content Include="Views\Profile\LawyerProfile.cshtml" />
     <Content Include="Views\Profile\EditLawyerProfile.cshtml" />
     <Content Include="Views\Profile\EditEmployeeProfile.cshtml" />
+    <Content Include="Views\Notifications\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

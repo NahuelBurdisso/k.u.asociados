@@ -54,7 +54,18 @@ namespace kuasociados.Services
             }
             return notification1;
         }
-       
+
+        public void deactivateNotification(int idnotification)
+        {
+            var result = db.Notifications.SingleOrDefault(x => x.Id == idnotification);
+            if (result != null)
+            {
+                result.Active = false;
+                db.SaveChanges();
+            }
+        }
+
+
         public void saveNotification(Notification notification) {
 
             Notifications notification1 = new Notifications()

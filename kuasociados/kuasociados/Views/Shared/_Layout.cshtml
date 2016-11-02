@@ -22,6 +22,8 @@
         var isLawyer = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Lawyer");
         var isClient = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Client");
         var isEmployee = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Employee");
+        if (isLawyer) {
+        }
     }
     <div class="navbar navbar-fixed-top">
         <div class="container">
@@ -42,7 +44,7 @@
                     {
                         <li>@Html.ActionLink("Mis Casos", "LawyerCases", "MyCases")</li>
                         <li>@Html.ActionLink("Mi Perfil", "LawyerProfile", "Profile")</li>
-                        <li><a href=""><i class="fa fa-bell"><span class="badge">42</span></i></a></li>
+                        <li><a href="@Url.Action("Index","Notifications")"><i class="fa fa-bell"><span class="badge"></span></i></a></li>
                     }
                     @if (isEmployee)
                     {
@@ -105,5 +107,14 @@
     <script type="text/javascript" src="../../Scripts/classie.js"></script>
     <script src="https://unpkg.com/isotope-layout@3.0/dist/isotope.pkgd.min.js"></script>
     <script type="text/javascript" src="../../Scripts/main.js"></script>    
+    <script>
+        $.ajax({
+         type: "GET",
+         url: "/Shared/GetActiveNotificationsQuant",
+         success: function (data) {
+             $(".badge").html(data)
+         }
+        });
+    </script>
 </body>
 </html>
