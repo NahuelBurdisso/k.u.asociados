@@ -29,6 +29,7 @@
         <AssociationConnector Association="KuasociadosModel.FK_Notifications_Lawyers" />
         <AssociationConnector Association="KuasociadosModel.FK_Users_Persons" />
         <AssociationConnector Association="KuasociadosModel.webpages_UsersInRoles" />
+        <EntityTypeShape EntityType="KuasociadosModel.Institutions" Width="1.5" PointX="8.375" PointY="9.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

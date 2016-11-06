@@ -48,6 +48,7 @@ namespace kuasociados.App_Start
             container.RegisterType<ICaseService, CaseService>();
             container.RegisterType<IEmployeeService, EmployeeService>();
             container.RegisterType<INotificationService, NotificationService>();
+            container.RegisterType<IInstitutionService, InstitutionService>();
         }
     }
 }

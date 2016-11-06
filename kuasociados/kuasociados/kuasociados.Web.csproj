@@ -373,9 +373,11 @@
     <Content Include="Views\Profile\EditLawyerProfile.cshtml" />
     <Content Include="Views\Profile\EditEmployeeProfile.cshtml" />
     <Content Include="Views\Notifications\Index.cshtml" />
+    <Content Include="Views\Contacto\EditInstitution.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Institution\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

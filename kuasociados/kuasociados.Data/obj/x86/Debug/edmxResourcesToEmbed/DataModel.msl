@@ -184,5 +184,17 @@
         <ScalarProperty Name="RoleId" ColumnName="RoleId" />
       </EndProperty>
     </AssociationSetMapping>
+    <EntitySetMapping Name="Institutions">
+      <EntityTypeMapping TypeName="KuasociadosModel.Institutions">
+        <MappingFragment StoreEntitySet="Institutions">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+          <ScalarProperty Name="Celular" ColumnName="Celular" />
+          <ScalarProperty Name="Tel" ColumnName="Tel" />
+          <ScalarProperty Name="HorarioAtencion" ColumnName="HorarioAtencion" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

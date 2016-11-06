@@ -1,0 +1,69 @@
+﻿@model kuasociados.Contract.Models.Institution
+
+@{
+    ViewBag.Title = "EditInstitution";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="edit">
+    <div class="row mvxl">
+        <div class="col-md-12 text-center">
+            <h3>Información de Institución:</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-red">
+                    <div class="row">
+                        <div class="col-md-offset-4 col-md-4  phm">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Direccion, htmlAttributes: new { @class = "control-label" })
+                                @Html.EditorFor(model => model.Direccion, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Direccion, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.HorarioAtencion, htmlAttributes: new { @class = "control-label" })
+                                @Html.EditorFor(model => model.HorarioAtencion, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.HorarioAtencion, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Tel, htmlAttributes: new { @class = "control-label" })
+                                @Html.EditorFor(model => model.Tel, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Tel, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Celular, htmlAttributes: new { @class = "control-label" })
+                                @Html.EditorFor(model => model.Celular, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Celular, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Mail, htmlAttributes: new { @class = "control-label" })
+                                @Html.EditorFor(model => model.Mail, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Mail, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mvm">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <div class="col-md-offset-4 col-md-4 text-center">
+                                    <a href="@(Url.Action("Index" , "Contacto"))">
+                                        <input type="button" value="Cancelar" class="mrs button button--wapasha button--text-thick button--text-upper button--size-s">
+                                    </a>
+                                    <button class="button button--wapasha button--text-thick button--text-upper button--size-s" type="submit" value="Create">Editar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+
+

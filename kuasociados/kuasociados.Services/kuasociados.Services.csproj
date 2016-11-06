@@ -86,6 +86,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InstitutionService.cs" />
     <Compile Include="EmployeeService.cs" />
     <Compile Include="NotificationService.cs" />
     <Compile Include="StateService.cs" />

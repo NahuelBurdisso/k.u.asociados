@@ -85,6 +85,7 @@
       <End Role="webpages_Roles" EntitySet="webpages_Roles" />
       <End Role="Users" EntitySet="Users" />
     </AssociationSet>
+    <EntitySet Name="Institutions" EntityType="KuasociadosModel.Institutions" />
   </EntityContainer>
   <ComplexType Name="sp_helpdiagramdefinition_Result">
     <Property Type="Int32" Name="version" Nullable="true" />
@@ -367,4 +368,15 @@
     <End Type="KuasociadosModel.webpages_Roles" Role="webpages_Roles" Multiplicity="*" />
     <End Type="KuasociadosModel.Users" Role="Users" Multiplicity="*" />
   </Association>
+  <EntityType Name="Institutions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Direccion" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="HorarioAtencion" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Tel" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Celular" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Mail" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" />
+  </EntityType>
 </Schema>

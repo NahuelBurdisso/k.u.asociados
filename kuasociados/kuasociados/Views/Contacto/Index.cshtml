@@ -1,6 +1,8 @@
-﻿
+﻿@model kuasociados.Contract.Models.Institution
 @{
+    var isSecretary = Roles.IsUserInRole(WebSecurity.CurrentUserName, "Secretary");
     ViewBag.Title = "Index";
+    var mailto = "mailto:" + Model.Mail;
 }
 
 <section class="contacto">
@@ -56,30 +58,35 @@
                 <div>
                     <div class="panel">
                         <div class="panel-heading">
-                            <h3 class="text-center">Nuestra información</h3>
+                            <h3 class="text-center">Nuestra información
+                            @if(isSecretary)
+                            {
+                                <span class="text-right"><a class="btn btn-primary" href="@Url.Action("EditInstitution", "Contacto")"><i class="fa fa-pencil" aria-hidden="true"></i></a></span>
+                            }  
+                            </h3>
                             <hr>
                         </div>
                         <div class="panel-body text-center">
                             <ul class="contacto_ul">
                                 <li>
                                     <i class="fa fa-2x fa-home"></i>
-                                    <p class="contacto_ul_p">Bv Hipolito Irigoyen 700</p>
+                                    <p class="contacto_ul_p">@Model.Direccion</p>
                                 </li>
                                 <li>
                                     <i class="fa fa-clock-o" style="font-size: 25px;"></i>
-                                    <p class="contacto_ul_p">8 am a 17pm</p>
+                                    <p class="contacto_ul_p">@Model.HorarioAtencion</p>
                                 </li>
                                 <li>
                                     <i class="fa fa-2x fa-phone"></i>
-                                    <p class="contacto_ul_p">452299</p>
+                                    <p class="contacto_ul_p">@Model.Tel</p>
                                 </li>
                                 <li>
                                     <i class="fa fa-3x fa-mobile"></i>
-                                    <p>03492-547152</p>
+                                    <p>@Model.Celular</p>
                                 </li>
                                 <li>
                                     <i class="fa fa-2x fa-envelope-o"></i>
-                                    <a href="mailto:contacto@kuasociados.com.ar"><p>contacto@kuasociados.com.ar</p></a>
+                                    <a href="@mailto"><p>@Model.Mail</p></a>
                                 </li>
                              </ul>
                             <hr />
