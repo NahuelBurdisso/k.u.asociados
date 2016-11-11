@@ -122,6 +122,7 @@ namespace kuasociados.Services
             }
 
 
+            this.userservice = new UserService();
 
             int newid = this.userservice.getLastestPersonId();
 

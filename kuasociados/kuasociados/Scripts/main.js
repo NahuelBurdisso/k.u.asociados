@@ -1,4 +1,17 @@
-﻿$(document).ready(function () { 
+﻿$(document).ready(function () {
+
+    setTimeout(ajaxpetition, 3000)
+
+    function ajaxpetition() {
+        $.ajax({
+            type: "GET",
+            url: "/Shared/GetActiveNotificationsQuant",
+            success: function (data) {
+                $(".badge").html(data)
+            }
+        });
+    }
+
     // full page menu
     $('#fullpage').fullpage({
         menu: '#menu',

@@ -128,6 +128,7 @@ namespace kuasociados.Services
                 throw;
             }
 
+            this.userservice = new UserService();
             int newid = this.userservice.getLastestPersonId();
 
             Lawyers lawyer1 = new Lawyers();

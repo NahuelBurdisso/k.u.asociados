@@ -119,9 +119,9 @@ namespace kuasociados.Services
                 }
                 throw;
             }
-            
-            
 
+
+            this.userservice = new UserService();
             int newid = this.userservice.getLastestPersonId();
 
 
